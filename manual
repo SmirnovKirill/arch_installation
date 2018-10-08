@@ -20,27 +20,37 @@
 
 3. mount /dev/sda2 /mnt
 
-4. pacstrap /mnt base
+4. Подключить wifi:
+4.1 systemctl stop dhcpcd@interface (interface tabом)
+4.2 ip link, найти wifi
+4.3 ip link set wlan0 (заменить на нужное) up
+4.4 iw dev wlan0 (заменить на нужное) scan	
+4.5 wpa_passphrase MYSSID passphrase > /etc/wpa_supplicant/example.conf
+4.6 wpa_supplicant -B -i interface -c /etc/wpa_supplicant/example.conf
+4.7 dhcpcd wlan0 (заменить на нужное)
 
-5. genfstab -U /mnt >> /mnt/etc/fstab
 
-6. arch-chroot /mnt
+5. pacstrap /mnt base
 
-7. ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+6. genfstab -U /mnt >> /mnt/etc/fstab
 
-8. hwclock --systohc
+7. arch-chroot /mnt
 
-9. Раскомментировать в /etc/locale.gen en_NZ.UTF-8 UTF-8
+8. ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
-10. locale-gen
+9. hwclock --systohc
 
-11. passwd
+10. Раскомментировать в /etc/locale.gen en_NZ.UTF-8 UTF-8
 
-12. pacman -S grub
+11. locale-gen
 
-12.1 grub-install --target=i386-pc /dev/sda
+12. passwd
 
-12.2 grub-mkconfig -o /boot/grub/grub.cfg
+13. pacman -S grub
+
+13.1 grub-install --target=i386-pc /dev/sda
+
+13.2 grub-mkconfig -o /boot/grub/grub.cfg
 
 
 Вытащить диск/флешку.
