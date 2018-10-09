@@ -18,6 +18,8 @@
 
 1.4 mkfs.fat -F32 /dev/sda1
 
+1.5 mount /dev/sda1 /efi
+
 2. mkfs.ext4 /dev/sda2
 
 3. mount /dev/sda2 /mnt
