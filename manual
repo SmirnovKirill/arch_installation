@@ -18,23 +18,19 @@
 
 1.4 mkfs.fat -F32 /dev/sda1
 
-1.5 mount /dev/sda1 /efi
-
 2. mkfs.ext4 /dev/sda2
 
 3. mount /dev/sda2 /mnt
 
 4. Подключить wifi:
-4.1 systemctl stop dhcpcd@interface (interface tabом)
-4.2 ip link, найти wifi
-4.3 ip link set wlan0 (заменить на нужное) up
-4.4 iw dev wlan0 (заменить на нужное) scan	
-4.5 wpa_passphrase MYSSID passphrase > /etc/wpa_supplicant/example.conf
-4.6 wpa_supplicant -B -i interface -c /etc/wpa_supplicant/example.conf
-4.7 dhcpcd wlan0 (заменить на нужное)
+4.1 ip link, найти wifi
+4.2 ip link set wlp2s0 (заменить на нужное) up
+4.3 iw dev wlp2s0 (заменить на нужное) scan	
+4.4 wpa_passphrase MYSSID passphrase > /etc/wpa_supplicant/example.conf
+4.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
+4.6 dhcpcd wlp2s0 (заменить на нужное)
 
-
-5. pacstrap /mnt base
+5. pacstrap /mnt base wpa_supplicant
 
 6. genfstab -U /mnt >> /mnt/etc/fstab
 
