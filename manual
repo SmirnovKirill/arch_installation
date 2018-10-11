@@ -21,8 +21,8 @@
 2. mkfs.ext4 /dev/sda2
 
 3.1 mount /dev/sda2 /mnt
-3.2 mkdir /mnt/boot
-3.3 mount /dev/sda1 /mnt/boot
+3.2 mkdir /mnt/efi
+3.3 mount /dev/sda1 /mnt/efi
 
 4. Подключить wifi:
 4.1 ip link, найти wifi
@@ -32,7 +32,7 @@
 4.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
 4.6 dhcpcd wlp2s0 (заменить на нужное)
 
-5. pacstrap /mnt base wpa_supplicant grub efibootmgr
+5. pacstrap /mnt base wpa_supplicant grub efibootmgr vim
 
 6. genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -42,13 +42,13 @@
 
 9. hwclock --systohc
 
-10. Раскомментировать в /etc/locale.gen en_NZ.UTF-8 UTF-8
+10. Раскомментировать в /etc/locale.gen en_US.UTF-8 UTF-8
 
 11. locale-gen
 
 12. passwd
 
-13.1 grub-install --target=i386-pc /dev/sda
+13.1 grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
 
 13.2 grub-mkconfig -o /boot/grub/grub.cfg
 
