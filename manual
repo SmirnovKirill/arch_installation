@@ -32,7 +32,7 @@
 4.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
 4.6 dhcpcd wlp2s0 (заменить на нужное)
 
-5. pacstrap /mnt base wpa_supplicant
+5. pacstrap /mnt base wpa_supplicant grub efibootmgr
 
 6. genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -47,8 +47,6 @@
 11. locale-gen
 
 12. passwd
-
-13. pacman -S grub
 
 13.1 grub-install --target=i386-pc /dev/sda
 
