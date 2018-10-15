@@ -32,25 +32,27 @@
 4.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
 4.6 dhcpcd wlp2s0 (заменить на нужное)
 
-5. pacstrap /mnt base wpa_supplicant grub efibootmgr vim
+5. pacstrap /mnt base
 
 6. genfstab -U /mnt >> /mnt/etc/fstab
 
 7. arch-chroot /mnt
 
-8. ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+8. pacman -S wpa_supplicant grub efibootmgr vim
 
-9. hwclock --systohc
+9. ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
-10. Раскомментировать в /etc/locale.gen en_US.UTF-8 UTF-8
+10. hwclock --systohc
 
-11. locale-gen
+11. Раскомментировать в /etc/locale.gen en_US.UTF-8 UTF-8
 
-12. passwd
+12. locale-gen
 
-13.1 grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
+13. passwd
 
-13.2 grub-mkconfig -o /boot/grub/grub.cfg
+14.1 grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
+
+14.2 grub-mkconfig -o /boot/grub/grub.cfg
 
 
 Вытащить диск/флешку.
