@@ -48,9 +48,9 @@
 
 10.3 в /etc/locale.conf записать LANG=en_US.UTF-8
 
-11. pacman -S wpa_supplicant grub efibootmgr vim
+11. passwd
 
-12. passwd
+12. pacman -S wpa_supplicant grub efibootmgr vim
 
 13.1 grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
 
