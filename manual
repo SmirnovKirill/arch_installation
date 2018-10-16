@@ -38,6 +38,19 @@
 
 Вытащить диск/флешку.
 
+Если установлена винда, то создать файл /boot/grub/custom.cfg и добавить в него 
+
+menuentry "Microsoft Windows 10" {
+    insmod part_gpt
+    insmod fat
+    insmod search_fs_uuid
+    insmod chain
+    search --fs-uuid --set=root $hints_string $fs_uuid
+    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+}
+
+после чего grub-mkconfig -o /boot/grub/grub.cfg
+
 1. systemctl enable dhcpcd.service чтобы заработал Интернет
 
 2. useradd -m kirill
