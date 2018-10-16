@@ -49,6 +49,10 @@ menuentry "Microsoft Windows 10" {
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
 }
 
+где $hinst_string и $fs_uuid узнаются путем
+grub-probe --target=fs_uuid esp/EFI/Microsoft/Boot/bootmgfw.efi
+grub-probe --target=hints_string esp/EFI/Microsoft/Boot/bootmgfw.efi
+
 после чего grub-mkconfig -o /boot/grub/grub.cfg
 
 1. systemctl enable dhcpcd.service чтобы заработал Интернет
