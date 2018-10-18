@@ -36,12 +36,17 @@
 
 7. passwd
 
-8. pacman -S wpa_supplicant grub efibootmgr vim git
+8. pacman -S wpa_supplicant grub efibootmgr vim git sudo
 
 9.1 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 9.2 grub-mkconfig -o /boot/grub/grub.cfg
 
 Вытащить диск/флешку.
+
+1.1 useradd -m kirill
+1.2 passwd kirill
+1.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
+
 
 Если установлена винда, то создать файл /boot/grub/custom.cfg и добавить в него 
 
@@ -60,17 +65,6 @@ grub-probe --target=hints_string esp/EFI/Microsoft/Boot/bootmgfw.efi
 
 после чего grub-mkconfig -o /boot/grub/grub.cfg
 
-1. systemctl enable dhcpcd.service чтобы заработал Интернет
-
-2. useradd -m kirill
-
-3. passwd kirill
-
-4. pacman -S sudo
-
-5. visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
-
-6. sudo pacman -S virtualbox-guest-utils если установка на виртуалке, выбрать там опцию с virtualbox-guest-modules-arch
 
 7. sudo pacman -S xorg-server xorg-xinit
 
@@ -79,10 +73,6 @@ grub-probe --target=hints_string esp/EFI/Microsoft/Boot/bootmgfw.efi
 7.2 cp /etc/X11/xinit/xserverrc ~/.xserverrc
 
 8. sudo pacman -S openbox lxqt-panel xterm pcmanfm-qt xscreensaver
-
-9. sudo pacman -S vim
-
-10. в ~/.bashrc прописать alias vi="vim"
 
 11. заменить в ~/.xinitrc весь блок начинающийся с twm и до конца на exec openbox-session
 
