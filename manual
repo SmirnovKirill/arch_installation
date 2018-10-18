@@ -46,24 +46,16 @@
 1.1 useradd -m kirill
 1.2 passwd kirill
 1.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
+1.4 залогиниться новым пользователем
+
+2 git clone https://github.com/SmirnovKirill/arch_installation.git
+
+Если установлена винда, то
+3.1 chmod +x add_windows_to_grub.sh
+3.2 sudo ./add_windows_to_grub.sh
 
 
-Если установлена винда, то создать файл /boot/grub/custom.cfg и добавить в него 
 
-menuentry "Microsoft Windows 10" {
-    insmod part_gpt
-    insmod fat
-    insmod search_fs_uuid
-    insmod chain
-    search --fs-uuid --set=root $hints_string $fs_uuid
-    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-}
-
-где $hinst_string и $fs_uuid узнаются путем
-grub-probe --target=fs_uuid esp/EFI/Microsoft/Boot/bootmgfw.efi
-grub-probe --target=hints_string esp/EFI/Microsoft/Boot/bootmgfw.efi
-
-после чего grub-mkconfig -o /boot/grub/grub.cfg
 
 
 7. sudo pacman -S xorg-server xorg-xinit
