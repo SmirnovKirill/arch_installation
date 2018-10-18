@@ -57,6 +57,9 @@
 4 в /etc/environment дописать
 EDITOR=vim
 
+5 pacman -S xorg-server openbox lxdm ttf-font
+systemctl enable lxdm
+положить lxdm.conf в /etc/lxdm/lxdm.conf
 
 
 
