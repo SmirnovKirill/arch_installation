@@ -36,7 +36,7 @@
 
 7. passwd
 
-8. pacman -S wpa_supplicant grub efibootmgr vim
+8. pacman -S wpa_supplicant grub efibootmgr vim git
 
 9.1 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 9.2 grub-mkconfig -o /boot/grub/grub.cfg
