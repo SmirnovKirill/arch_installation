@@ -42,6 +42,7 @@
 9.2 passwd kirill
 9.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
 9.4 su kirill
+9.5 cd ~
 
 10 git clone https://github.com/SmirnovKirill/arch_installation.git
 
