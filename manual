@@ -54,11 +54,13 @@
 
 11.4 grub-mkconfig -o /boot/grub/grub.cfg
 
-12 в /etc/environment дописать
+12 passwd -l root
+
+13 в /etc/environment дописать
 EDITOR=vim
 SUDO_EDITOR=vim
 
-13. раскомментировать TotalDownload в /etc/pacman.conf
+14 раскомментировать TotalDownload в /etc/pacman.conf
 
 Вытащить диск/флешку.
 
