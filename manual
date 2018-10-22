@@ -65,7 +65,7 @@ SUDO_EDITOR=vim
 Вытащить диск/флешку.
 
 
-5 pacman -S xorg-server openbox lxdm ttf-font
+5 pacman -S xorg-server openbox lxde-common lxsession lxpanel lxdm lxterminal pcmanfm ttf-dejavu
 systemctl enable lxdm
 положить lxdm.conf в /etc/lxdm/lxdm.conf
 
