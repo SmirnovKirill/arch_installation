@@ -58,6 +58,8 @@
 EDITOR=vim
 SUDO_EDITOR=vim
 
+13. раскомментировать TotalDownload в /etc/pacman.conf
+
 Вытащить диск/флешку.
 
 
