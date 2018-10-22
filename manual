@@ -62,36 +62,8 @@ SUDO_EDITOR=vim
 
 14 раскомментировать TotalDownload в /etc/pacman.conf
 
+15.1 pacman -S xorg-server openbox lxde-common lxsession lxpanel lxdm lxterminal pcmanfm ttf-dejavu
+15.2 systemctl enable lxdm
+15.3 положить lxdm.conf в /etc/lxdm/lxdm.conf
+
 Вытащить диск/флешку.
-
-
-5 pacman -S xorg-server openbox lxde-common lxsession lxpanel lxdm lxterminal pcmanfm ttf-dejavu
-systemctl enable lxdm
-положить lxdm.conf в /etc/lxdm/lxdm.conf
-
-
-
-
-7. sudo pacman -S xorg-server xorg-xinit
-
-7.1 cp /etc/X11/xinit/xinitrc ~/.xinitrc
-
-7.2 cp /etc/X11/xinit/xserverrc ~/.xserverrc
-
-8. sudo pacman -S openbox lxqt-panel xterm pcmanfm-qt xscreensaver
-
-11. заменить в ~/.xinitrc весь блок начинающийся с twm и до конца на exec openbox-session
-
-12. mkdir -p ~/.config
-
-13. cp /etc/xdg/openbox ~/.config -r, поменять в rc.xml число десктопов с 4 на 1
-
-14. cp /etc/xdg/lxqt ~/.config/ -r
-
-15. Поменять содержимое ~/.config/openbox/autostart на
-lxqt-panel &
-xscreensaver -no-splash &
-
-16. в ~/.xscreensaver поменять timeout на 99:59:59
-
-17. sudo pacman -S alsa-utils, открыть нужные каналы путем нажатия n
