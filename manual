@@ -38,22 +38,23 @@
 
 8. pacman -S wpa_supplicant grub efibootmgr vim git sudo
 
-9 git clone https://github.com/SmirnovKirill/arch_installation.git
+9.1 useradd -m kirill
+9.2 passwd kirill
+9.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
+9.4 su kirill
 
-10.1 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+10 git clone https://github.com/SmirnovKirill/arch_installation.git
+
+11.1 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 
 Если установлена винда, то
-10.2 chmod +x add_windows_to_grub.sh
-10.3 sudo ./add_windows_to_grub.sh
+11.2 chmod +x add_windows_to_grub.sh
+11.3 sudo ./add_windows_to_grub.sh
 
-10.4 grub-mkconfig -o /boot/grub/grub.cfg
+11.4 grub-mkconfig -o /boot/grub/grub.cfg
 
-11 в /etc/environment дописать
+12 в /etc/environment дописать
 EDITOR=vim
-
-12.1 useradd -m kirill
-12.2 passwd kirill
-12.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
 
 Вытащить диск/флешку.
 
