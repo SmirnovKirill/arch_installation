@@ -89,3 +89,7 @@ xorg-xrandr чтобы управлять разрешением экрана
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximizeFull"/>
       </mousebind>
+
+
+2 ~/.config/lxpanel/LXDE/panels/panel
+2.1 поменять backgroundfile=/usr/share/lxpanel/images/main_wallpaper.jpg
