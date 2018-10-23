@@ -79,6 +79,7 @@ xorg-xrandr чтобы управлять разрешением экрана
             <then>	
               <action name="Unmaximize"/>
               <action name="MoveResizeTo">
+	        <x>center</x>
                 <y>0</y>
               </action>
             </then>
