@@ -93,3 +93,4 @@ xorg-xrandr чтобы управлять разрешением экрана
 
 2 ~/.config/lxpanel/LXDE/panels/panel
 2.1 стереть Button firefox.desktop, убрать следующий space, iconify, space, pager, space, cpu, launchbar
+2.2 добавить плагин xkb
