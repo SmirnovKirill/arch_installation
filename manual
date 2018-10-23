@@ -28,11 +28,12 @@
 
 5 arch-chroot /mnt
 
-6.1 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-6.2 hwclock --systohc
-6.3 Раскомментировать в /etc/locale.gen en_US.UTF-8 UTF-8
-6.4 locale-gen
-6.5 в /etc/locale.conf записать LANG=en_US.UTF-8
+6.1 timedatectl set-ntp true
+6.2 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+6.3 hwclock --systohc
+6.4 Раскомментировать в /etc/locale.gen en_US.UTF-8 UTF-8
+6.5 locale-gen
+6.6 в /etc/locale.conf записать LANG=en_US.UTF-8
 
 7. passwd
 
