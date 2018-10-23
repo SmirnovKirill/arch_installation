@@ -70,5 +70,5 @@ xorg-xrandr чтобы управлять разрешением экрана
 
 Вытащить диск/флешку.
 
-1 /etc/xdg/openbox/rc.xml
-в desktops->number поменять с 4 на 1
+1 ~/.config/openbox/lxde-rc.xml
+в desktops->number поменять с 2 на 1
