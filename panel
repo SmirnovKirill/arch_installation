@@ -79,6 +79,7 @@ Plugin {
 Plugin {
   type=xkb
   Config {
+    DisplayType=1 
   }
 }
 Plugin {
