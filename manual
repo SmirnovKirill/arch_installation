@@ -69,3 +69,6 @@ xorg-xrandr чтобы управлять разрешением экрана
 15.3 положить lxdm.conf в /etc/lxdm/lxdm.conf
 
 Вытащить диск/флешку.
+
+1 /etc/xdg/openbox/rc.xml
+в desktops->number поменять с 4 на 1
