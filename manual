@@ -95,6 +95,7 @@ xorg-xrandr чтобы управлять разрешением экрана
 2 ~/.config/lxpanel/LXDE/panels/panel
 2.1 стереть Button firefox.desktop, убрать следующий space, iconify, space, pager, space, cpu, launchbar
 2.2 добавить плагин xkb
+2.3 поставить tray перед звуком и сменой раскладки
 
 3 ~/.config/pcmanfm/LXDE/desktop*
 3.1 поменять обои
