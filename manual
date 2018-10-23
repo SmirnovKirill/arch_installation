@@ -63,7 +63,7 @@ SUDO_EDITOR=vim
 
 14 раскомментировать TotalDownload в /etc/pacman.conf
 
-15.1 pacman -S xorg-server xorg-xrandr openbox lxde-common lxsession lxpanel lxdm lxterminal pcmanfm ttf-dejavu zip unzip
+15.1 pacman -S xorg-server xorg-xrandr openbox lxde-common lxsession lxpanel lxdm lxterminal pcmanfm ttf-dejavu zip unzip imagemagick
 lxde-common и lxsession потому что минимальные требования lxde,
 xorg-xrandr чтобы управлять разрешением экрана
 15.2 systemctl enable lxdm
