@@ -7,7 +7,7 @@ Global {
   margin=0
   widthtype=percent
   width=100
-  height=26
+  height=40
   transparent=0
   tintcolor=#000000
   alpha=0
@@ -17,7 +17,7 @@ Global {
   heightwhenhidden=0
   usefontcolor=1
   fontcolor=#ffffff
-  background=1
+  background=0
   backgroundfile=/usr/share/lxpanel/images/background.png
 }
 Plugin {
