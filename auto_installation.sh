@@ -2,8 +2,7 @@
 
 set -ex
 
-mode = "VOSTRO"
-windows_installed = "y"
+WINDOWS_INSTALLED = "y"
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
@@ -36,9 +35,9 @@ pacman -S \
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 
-if [[ $windows_installed == "y" ]] then
-  fs_uusid = "$(grub-probe --target=fs_uuid /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
-  hints_string = "$(grub-probe --target=hints_string /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
+if [[ $WINDOWS_INSTALLED == "y" ]] then
+  FS_UUSID = "$(grub-probe --target=fs_uuid /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
+  HINTS_STRING = "$(grub-probe --target=hints_string /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
 
   cat << EndOfText >> /boot/grub/custom.cfg
   menuentry "Microsoft Windows 10" {
@@ -46,7 +45,7 @@ if [[ $windows_installed == "y" ]] then
     insmod fat
     insmod search_fs_uuid
     insmod chain
-    search --fs-uuid --set=root $hints_string $fs_uusid
+    search --fs-uuid --set=root $HINTS_STRING $FS_UUSID
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
   }
   EndOfText
