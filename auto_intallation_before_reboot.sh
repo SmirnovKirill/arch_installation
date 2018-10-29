@@ -14,7 +14,7 @@ pacman -S \
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 
-if [[ $WINDOWS_INSTALLED == "y" ]] then
+if [[ $WINDOWS_INSTALLED == "y" ]]; then
   FS_UUSID="$(grub-probe --target=fs_uuid /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
   HINTS_STRING="$(grub-probe --target=hints_string /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
 
