@@ -28,7 +28,7 @@ if [[ $WINDOWS_INSTALLED == "y" ]]; then
     search --fs-uuid --set=root $HINTS_STRING $FS_UUSID
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
   }
-  EndOfText
+EndOfText
 fi
 
 grub-mkconfig -o /boot/grub/grub.cfg
