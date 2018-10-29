@@ -38,4 +38,5 @@
 8.1 cd ~
 8.2 git clone https://github.com/SmirnovKirill/arch_installation.git
 8.3 cd arch_installation
-8.4 sudo ./auto_installation.sh
+8.4 chmod +x auto_installation.sh
+8.5 sudo ./auto_installation.sh
