@@ -100,8 +100,6 @@ Plugin {
 
 Plugin {
     type = tray
-    Config {
-    }
 }
 
 Plugin {
