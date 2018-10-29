@@ -22,7 +22,7 @@
 2.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
 2.6 dhcpcd wlp2s0 (заменить на нужное)
 
-3 pacstrap /mnt base
+3 pacstrap /mnt base git sudo
 
 4 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -30,14 +30,12 @@
 
 6. passwd
 
-7. pacman -S grub efibootmgr git sudo
+7.1 useradd -m kirill
+7.2 passwd kirill
+7.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL
+7.4 su kirill
 
-9.1 useradd -m kirill
-9.2 passwd kirill
-9.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL
-9.4 su kirill
-
-10.1 cd ~
-10.2 git clone https://github.com/SmirnovKirill/arch_installation.git
-10.3 cd arch_installation
-10.4 sudo ./auto_installation.sh
+8.1 cd ~
+8.2 git clone https://github.com/SmirnovKirill/arch_installation.git
+8.3 cd arch_installation
+8.4 sudo ./auto_installation.sh
