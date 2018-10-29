@@ -40,4 +40,4 @@
 10.1 cd ~
 10.2 git clone https://github.com/SmirnovKirill/arch_installation.git
 10.3 cd arch_installation
-10.4 ./auto_installation.sh
+10.4 sudo ./auto_installation.sh
