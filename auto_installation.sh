@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 mode = "VOSTRO"
 windows_installed = "y"
 
