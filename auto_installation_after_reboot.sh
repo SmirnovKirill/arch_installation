@@ -2,7 +2,8 @@
 
 set -ex
 
-source installation_variables.sh
+CURRENT_DIRECTORY="$(dirname "$0")"
+source "$CURRENT_DIRECTORY/installation_variables.sh"
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
