@@ -35,11 +35,7 @@
 7.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL
 7.4 su kirill
 
-8.1 cd ~
-8.2 git clone https://github.com/SmirnovKirill/arch_installation.git
-8.3 cd arch_installation
-8.4 find . -name "*.sh" | xargs chmod +x
-8.5 sudo ./auto_installation_before_reboot.sh
-8.6 перегрузиться
-8.7 cd ~/arch_installation
-8.8 sudo ./auto_installation_after_reboot.sh
+8.1 git clone https://github.com/SmirnovKirill/arch_installation.git ~
+8.2 sudo ~/arch_installation/auto_installation_before_reboot.sh
+8.3 перегрузиться
+8.4 sudo ~/arch_installation/auto_installation_after_reboot.sh
