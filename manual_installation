@@ -34,7 +34,7 @@
 
 9.1 useradd -m kirill
 9.2 passwd kirill
-9.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL (ну или по аналогии)
+9.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL
 9.4 su kirill
 
 10.1 cd ~
