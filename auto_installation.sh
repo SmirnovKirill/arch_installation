@@ -16,6 +16,8 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 pacman -S \
   wpa_supplicant \
   vim \
+  grub \
+  efibootmgr \ #для граба
   xorg-server \
   xorg-xrandr \ #чтобы управлять разрешением экрана
   openbox \
