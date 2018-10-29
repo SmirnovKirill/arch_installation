@@ -15,7 +15,6 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 #программы
 pacman -S \
   wpa_supplicant \
-  vim \
   grub \
   efibootmgr \ #для граба
   xorg-server \
