@@ -45,8 +45,8 @@ echo "SUDO_EDITOR=vim" >> /etc/environment
 
 systemctl enable lxdm
 
-cp resources/desktop.jpg /usr/share/lxde/wallpapers/desktop.jpg
-cp configs/desktop-items-0.conf /home/kirill/.config/lxpanel/LXDE/panels/desktop-items-0.conf
-cp configs/lxde-rc.xml /home/kirill/.config/openbox/lxde-rc.xml
-cp configs/lxdm.conf /etc/lxdm/lxdm.conf
-cp configs/panel /home/kirill/.config/lxpanel/LXDE/panels/panel
+cp "$CURRENT_DIRECTORY/resources/desktop.jpg" /usr/share/lxde/wallpapers/desktop.jpg
+cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" /home/kirill/.config/lxpanel/LXDE/panels/desktop-items-0.conf
+cp "$CURRENT_DIRECTORY/configs/lxde-rc.xml" /home/kirill/.config/openbox/lxde-rc.xml
+cp "$CURRENT_DIRECTORY/configs/lxdm.conf" /etc/lxdm/lxdm.conf
+cp "$CURRENT_DIRECTORY/configs/panel" /home/kirill/.config/lxpanel/LXDE/panels/panel
