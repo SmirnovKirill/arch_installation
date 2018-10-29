@@ -12,6 +12,9 @@ sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf 
 
+#общий прогрессбар
+sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf
+
 #программы
 #xorg-xrandr чтобы управлять разрешением экрана
 #lxde-common минимальные требования lxde
@@ -40,9 +43,7 @@ passwd -l root
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
-#14 раскомментировать TotalDownload в /etc/pacman.conf
-
-#15.2 systemctl enable lxdm
+systemctl enable lxdm
 #15.3 положить lxdm.conf в /etc/lxdm/lxdm.conf
 
 #Вытащить диск/флешку.
