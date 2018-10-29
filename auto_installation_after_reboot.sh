@@ -43,6 +43,8 @@ passwd -l root
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
+setxkbmap -model pc105 -layout "ru,us" -variant "" -option grp:alt_shift_toggle
+
 systemctl enable lxdm
 
 cp "$CURRENT_DIRECTORY/resources/desktop.jpg" /usr/share/lxde/wallpapers/desktop.jpg
