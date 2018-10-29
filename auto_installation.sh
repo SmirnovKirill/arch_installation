@@ -12,15 +12,20 @@ locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf 
 
 #программы
+#efibootmgr для граба
+#xorg-xrandr чтобы управлять разрешением экрана
+#lxde-common минимальные требования lxde
+#lxsession минимальные требования lxde
+#pinta редактор
 pacman -S \
   wpa_supplicant \
   grub \
-  efibootmgr \ #для граба
+  efibootmgr \
   xorg-server \
-  xorg-xrandr \ #чтобы управлять разрешением экрана
+  xorg-xrandr \
   openbox \
-  lxde-common \ #минимальные требования lxde
-  lxsession \ #минимальные требования lxde
+  lxde-common \
+  lxsession \
   lxpanel \
   lxdm \
   lxterminal \
@@ -30,7 +35,7 @@ pacman -S \
   unzip \
   imagemagick \
   gpicview \
-  pinta #редактор
+  pinta
 
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
