@@ -251,7 +251,7 @@
   </keybind>
 
   <keybind key="Print">
-	  <action name="Execute"><command>~/arch_installation/screenshot.sh</command></action>
+	  <action name="Execute"><command>~/arch_installation/common_scripts/screenshot.sh</command></action>
   </keybind>
 </keyboard>
 
