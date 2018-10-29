@@ -2,7 +2,7 @@
 
 set -ex
 
-WINDOWS_INSTALLED = "y"
+WINDOWS_INSTALLED="y"
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
@@ -36,8 +36,8 @@ pacman -S \
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 
 if [[ $WINDOWS_INSTALLED == "y" ]] then
-  FS_UUSID = "$(grub-probe --target=fs_uuid /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
-  HINTS_STRING = "$(grub-probe --target=hints_string /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
+  FS_UUSID="$(grub-probe --target=fs_uuid /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
+  HINTS_STRING="$(grub-probe --target=hints_string /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
 
   cat << EndOfText >> /boot/grub/custom.cfg
   menuentry "Microsoft Windows 10" {
