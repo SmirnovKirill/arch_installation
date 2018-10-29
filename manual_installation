@@ -41,4 +41,5 @@
 8.4 find . -name "*.sh" | xargs chmod +x
 8.5 sudo ./auto_installation_before_reboot.sh
 8.6 перегрузиться
-8.7 sudo ./auto_installation_after_reboot.sh
+8.7 cd ~/arch_installation
+8.8 sudo ./auto_installation_after_reboot.sh
