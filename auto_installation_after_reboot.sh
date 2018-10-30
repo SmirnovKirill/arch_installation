@@ -5,6 +5,8 @@ set -ex
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/installation_variables.sh"
 
+timedatectl set-ntp true
+
 cp "$CURRENT_DIRECTORY/resources/desktop.jpg" "/usr/share/lxde/wallpapers/desktop.jpg"
 cp "$CURRENT_DIRECTORY/configs/lxdm.conf" "/etc/lxdm/lxdm.conf"
 cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpanel/LXDE/panels/panel"
