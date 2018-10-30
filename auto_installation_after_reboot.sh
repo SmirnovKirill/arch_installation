@@ -45,8 +45,8 @@ localectl --no-convert set-x11-keymap "ru,us" "pc105" "" "grp:alt_shift_toggle"
 
 systemctl enable lxdm
 
-cp "$CURRENT_DIRECTORY/resources/desktop.jpg" /usr/share/lxde/wallpapers/desktop.jpg
-cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" /home/kirill/.config/lxpanel/LXDE/panels/desktop-items-0.conf
-cp "$CURRENT_DIRECTORY/configs/lxde-rc.xml" /home/kirill/.config/openbox/lxde-rc.xml
-cp "$CURRENT_DIRECTORY/configs/lxdm.conf" /etc/lxdm/lxdm.conf
-cp "$CURRENT_DIRECTORY/configs/panel" /home/kirill/.config/lxpanel/LXDE/panels/panel
+cp "$CURRENT_DIRECTORY/resources/desktop.jpg" "/usr/share/lxde/wallpapers/desktop.jpg"
+cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/lxpanel/LXDE/panels/desktop-items-0.conf"
+cp "$CURRENT_DIRECTORY/configs/lxde-rc.xml" "/home/$USER/.config/openbox/lxde-rc.xml"
+cp "$CURRENT_DIRECTORY/configs/lxdm.conf" "/etc/lxdm/lxdm.conf"
+cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpanel/LXDE/panels/panel"
