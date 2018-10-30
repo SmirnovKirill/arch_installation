@@ -26,9 +26,8 @@
 
 4 genfstab -U /mnt >> /mnt/etc/fstab
 
-5 arch-chroot /mnt
-
-6.1 git clone https://github.com/SmirnovKirill/arch_installation.git /tmp/arch_installation
-6.2 /tmp/arch_installation/auto_installation_before_reboot.sh
-6.3 перегрузиться
-6.4 sudo ~/arch_installation/auto_installation_after_reboot.sh
+5.1 перегрузиться
+5.2 git clone https://github.com/SmirnovKirill/arch_installation.git /tmp/arch_installation
+5.3 /tmp/arch_installation/auto_installation_first_reboot.sh
+5.4 перегрузиться
+5.5 sudo ~/arch_installation/auto_installation_second_reboot.sh
