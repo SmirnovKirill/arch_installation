@@ -11,3 +11,4 @@ sudo -u kirill cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpane
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/pcmanfm/LXDE/desktop-items-0.conf"
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/lxde-rc.xml" "/home/$USER/.config/openbox/lxde-rc.xml"
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/desktop.conf" "/home/$USER/.config/lxsession/LXDE/desktop.conf"
+sudo -u kirill cp "$CURRENT_DIRECTORY/configs/lxterminal.conf" "/home/$USER/.config/lxterminal/lxterminal.conf"
