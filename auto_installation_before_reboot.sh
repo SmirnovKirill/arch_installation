@@ -35,4 +35,5 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m $USER
 passwd $USER
 sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
+passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
