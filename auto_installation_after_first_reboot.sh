@@ -41,13 +41,5 @@ pacman -S \
   meld
   
 systemctl enable lxdm
-systemctl start lxdm
-systemctl stop lxdm
 
 localectl --no-convert set-x11-keymap "us,ru" "pc105" "" "grp:alt_shift_toggle"
-
-cp "$CURRENT_DIRECTORY/resources/desktop.jpg" "/usr/share/lxde/wallpapers/desktop.jpg"
-cp "$CURRENT_DIRECTORY/configs/lxdm.conf" "/etc/lxdm/lxdm.conf"
-cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpanel/LXDE/panels/panel"
-cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/lxpanel/LXDE/panels/desktop-items-0.conf"
-cp "$CURRENT_DIRECTORY/configs/lxde-rc.xml" "/home/$USER/.config/openbox/lxde-rc.xml"
