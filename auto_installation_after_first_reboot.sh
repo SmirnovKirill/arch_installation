@@ -38,7 +38,8 @@ pacman -S \
   imagemagick \
   gpicview \
   pinta \
-  meld
+  meld \
+  papirus-icon-theme
   
 systemctl enable lxdm
 
