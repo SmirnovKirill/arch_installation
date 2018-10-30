@@ -22,7 +22,7 @@ if [[ $WINDOWS_INSTALLED == "y" ]]; then
   HINTS_STRING="$(grub-probe --target=hints_string /efi/EFI/Microsoft/Boot/bootmgfw.efi)"
 
   cat << EndOfText >> /boot/grub/custom.cfg
-menuentry "Microsoft Windows 10" {
+menuentry "$WINDOWS_GRUB_ENTRY_TITLE" {
   insmod part_gpt
   insmod fat
   insmod search_fs_uuid
@@ -41,6 +41,6 @@ sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
-sudo -u kirill git clone https://github.com/SmirnovKirill/arch_installation.git /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
-sudo -u kirill git config --global user.email "smirnov.kirill.vladimirovich@gmail.com" 
-sudo -u kirill git config --global user.name "Kirill Smirnov" 
+sudo -u kirill git clone $REPOSITORY_URL /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
+sudo -u kirill git config --global user.email $GIT_USER_EMAIL
+sudo -u kirill git config --global user.name $GIT_USER_NAME 
