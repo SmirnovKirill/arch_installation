@@ -12,8 +12,7 @@ sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf 
 
-#общий прогрессбар
-sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf
+sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прогрессбар
 
 #программы
 #xorg-xrandr чтобы управлять разрешением экрана
