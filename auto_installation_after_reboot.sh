@@ -41,7 +41,7 @@ pacman -S \
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
-localectl --no-convert set-x11-keymap "ru,us" "pc105" "" "grp:alt_shift_toggle"
+localectl --no-convert set-x11-keymap "us,ru" "pc105" "" "grp:alt_shift_toggle"
 
 systemctl enable lxdm
 
