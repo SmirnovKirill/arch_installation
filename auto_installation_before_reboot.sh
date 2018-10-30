@@ -5,52 +5,15 @@ set -ex
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/installation_variables.sh"
 
-#локаль, время
-ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-timedatectl set-ntp true
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf 
-
-localectl --no-convert set-x11-keymap "us,ru" "pc105" "" "grp:alt_shift_toggle"
-
-echo "EDITOR=vim" >> /etc/environment
-echo "SUDO_EDITOR=vim" >> /etc/environment
-
 sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прогрессбар
 
-#программы
 #efibootmgr для граба
-#xorg-xrandr чтобы управлять разрешением экрана
-#lxde-common минимальные требования lxde
-#lxsession минимальные требования lxde
-#pinta редактор
-#meld для diff
 pacman -S \
-  vim \
   sudo \
   wpa_supplicant \
   grub \
   efibootmgr \
-  xorg-server \
-  xorg-xrandr \
-  openbox \
-  lxde-common \
-  lxsession \
-  lxpanel \
-  lxdm \
-  lxterminal \
-  pcmanfm \
-  ttf-dejavu \
-  zip \
-  unzip \
-  imagemagick \
-  gpicview \
-  pinta \
-  meld
-  
-systemctl enable lxdm
-  
+    
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 
