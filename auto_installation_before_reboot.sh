@@ -42,3 +42,5 @@ passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
 sudo -u kirill git clone https://github.com/SmirnovKirill/arch_installation.git /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
+sudo -u kirill git config --global user.email "smirnov.kirill.vladimirovich@gmail.com" 
+sudo -u kirill git config --global user.name "Kirill Smirnov" 
