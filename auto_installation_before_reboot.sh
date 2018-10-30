@@ -28,6 +28,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #meld для diff
 pacman -S \
   vim \
+  sudo \
   wpa_supplicant \
   grub \
   efibootmgr \
