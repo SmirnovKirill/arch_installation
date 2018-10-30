@@ -30,12 +30,7 @@
 
 6. passwd
 
-7.1 useradd -m kirill
-7.2 passwd kirill
-7.3 visudo и дописать рядом с рутом kirill ALL=(ALL) ALL
-7.4 su kirill
-
-8.1 git clone https://github.com/SmirnovKirill/arch_installation.git ~
-8.2 sudo ~/arch_installation/auto_installation_before_reboot.sh
-8.3 перегрузиться
-8.4 sudo ~/arch_installation/auto_installation_after_reboot.sh
+7.1 git clone https://github.com/SmirnovKirill/arch_installation.git /home/%USER%
+7.2 /home/%USER%/arch_installation/auto_installation_before_reboot.sh
+7.3 перегрузиться
+7.4 sudo ~/arch_installation/auto_installation_after_reboot.sh
