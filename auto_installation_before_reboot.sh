@@ -41,4 +41,4 @@ sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
-git clone https://github.com/SmirnovKirill/arch_installation.git /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
+sudo -u kirill git clone https://github.com/SmirnovKirill/arch_installation.git /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
