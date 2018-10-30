@@ -39,9 +39,6 @@ pacman -S \
   pinta \
   meld
 
-#отключаем возможность логиниться рутом
-passwd -l root
-
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
