@@ -20,6 +20,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf
 #lxde-common минимальные требования lxde
 #lxsession минимальные требования lxde
 #pinta редактор
+#meld для diff
 pacman -S \
   xorg-server \
   xorg-xrandr \
@@ -35,7 +36,8 @@ pacman -S \
   unzip \
   imagemagick \
   gpicview \
-  pinta
+  pinta \
+  meld
 
 #отключаем возможность логиниться рутом
 passwd -l root
