@@ -5,7 +5,6 @@ set -ex
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/installation_variables.sh"
 
-#программы
 #efibootmgr для граба
 pacman -S \
   wpa_supplicant \
@@ -32,3 +31,7 @@ EndOfText
 fi
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+useradd -m $USER
+passwd $USER
+sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
