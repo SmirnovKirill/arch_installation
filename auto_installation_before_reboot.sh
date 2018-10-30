@@ -27,6 +27,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #pinta редактор
 #meld для diff
 pacman -S \
+  vim \
   wpa_supplicant \
   grub \
   efibootmgr \
