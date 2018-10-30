@@ -43,7 +43,7 @@ passwd -l root
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
-setxkbmap -model pc105 -layout "ru,us" -variant "" -option grp:alt_shift_toggle
+localectl --no-convert set-x11-keymap "ru,us" "pc105" "" "grp:alt_shift_toggle"
 
 systemctl enable lxdm
 
