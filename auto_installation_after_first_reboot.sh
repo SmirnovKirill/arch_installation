@@ -24,8 +24,9 @@ echo "SUDO_EDITOR=vim" >> /etc/environment
 pacman -S \
   vim \
   xorg-server \
+  xorg-xinit \
   #xorg-xrandr \
-  openbox \
+  openbox
   #lxde-common \
   #lxsession \
   #lxpanel \
@@ -41,6 +42,6 @@ pacman -S \
   #meld \
   #papirus-icon-theme
   
-systemctl enable lxdm
+#systemctl enable lxdm
 
 localectl --no-convert set-x11-keymap "us,ru" "pc105" "" "grp:alt_shift_toggle"
