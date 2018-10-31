@@ -21,6 +21,7 @@ pacman -S \
   vim \
   xorg-server \
   xorg-xinit \
-  openbox
+  openbox \
+  ttf-dejavu
   
 localectl --no-convert set-x11-keymap "us,ru" "pc105" "" "grp:alt_shift_toggle"
