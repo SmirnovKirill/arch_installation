@@ -35,10 +35,10 @@ pacman -S \
   #ttf-dejavu \
   #zip \
   #unzip \
-  imagemagick \
-  gpicview \
-  pinta \
-  meld \
+ # imagemagick \
+  #gpicview \
+  #pinta \
+  #meld \
   #papirus-icon-theme
   
 systemctl enable lxdm
