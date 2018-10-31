@@ -8,11 +8,17 @@ source "$CURRENT_DIRECTORY/installation_variables.sh"
 sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прогрессбар
 
 #efibootmgr для граба
+#xorg-xinit для ручной инициализации иксов
 pacman -S \
   sudo \
   wpa_supplicant \
   grub \
   efibootmgr \
+  vim \
+  xorg-server \
+  xorg-xinit \
+  openbox \
+  ttf-dejavu
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
@@ -44,3 +50,6 @@ passwd -l root #отключаем возможность логиниться �
 sudo -u kirill git clone $REPOSITORY_URL /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
 sudo -u kirill git config --global user.email $GIT_USER_EMAIL
 sudo -u kirill git config --global user.name $GIT_USER_NAME 
+
+echo "EDITOR=vim" >> /etc/environment
+echo "SUDO_EDITOR=vim" >> /etc/environment
