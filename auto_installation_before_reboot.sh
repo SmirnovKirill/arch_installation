@@ -64,4 +64,5 @@ sudo -u kirill cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER
 sudo -u kirill cp /etc/xdg/openbox "/home/$USER/.config" -r
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/autostart" "/home/$USER/.config/openbox/autostart"
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/rc.xml" "/home/$USER/.config/openbox/rc.xml"
-sudo -u kirill cp "$CURRENT_DIRECTORY/configs/menu.xml" "/home/$USER/.config/openbox/menu.xml"
+sudo -u kirill sed -i "s/\$FONT_SIZE/$FONT_SIZE/g" "/home/$USER/.config/openbox.rc.xml"
+sudo -u kirill sed -i "s/\$FONT_NAME/$FONT_NAME/g" "/home/$USER/.config/openbox.rc.xml"
