@@ -16,11 +16,7 @@ echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
 #программы
-#xorg-xrandr чтобы управлять разрешением экрана
-#lxde-common минимальные требования lxde
-#lxsession минимальные требования lxde
-#pinta редактор
-#meld для diff
+#xorg-xinit для ручной инициализации иксов
 pacman -S \
   vim \
   xorg-server \
