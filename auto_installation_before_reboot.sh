@@ -19,7 +19,7 @@ pacman -S \
   xorg-xinit \
   openbox \
   ttf-dejavu \
-  lxterminal \
+  xterm \
   pcmanfm
     
 #загрузчик
