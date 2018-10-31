@@ -24,22 +24,22 @@ echo "SUDO_EDITOR=vim" >> /etc/environment
 pacman -S \
   vim \
   xorg-server \
-  xorg-xrandr \
+  #xorg-xrandr \
   openbox \
-  lxde-common \
-  lxsession \
-  lxpanel \
-  lxdm \
-  lxterminal \
-  pcmanfm \
-  ttf-dejavu \
-  zip \
-  unzip \
+  #lxde-common \
+  #lxsession \
+  #lxpanel \
+  #lxdm \
+  #lxterminal \
+  #pcmanfm \
+  #ttf-dejavu \
+  #zip \
+  #unzip \
   imagemagick \
   gpicview \
   pinta \
   meld \
-  papirus-icon-theme
+  #papirus-icon-theme
   
 systemctl enable lxdm
 
