@@ -55,3 +55,7 @@ sudo -u kirill git config --global user.name $GIT_USER_NAME
 
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
+
+sudo -u kirill cp "$CURRENT_DIRECTORY/configs/.bashrc" "/home/$USER/.bashrc"
+sudo -u kirill cp "$CURRENT_DIRECTORY/configs/.xinitrc" "/home/$USER/.xinitrc"
+sudo -u kirill cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
