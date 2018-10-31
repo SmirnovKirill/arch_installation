@@ -25,23 +25,6 @@ pacman -S \
   vim \
   xorg-server \
   xorg-xinit \
-  #xorg-xrandr \
   openbox
-  #lxde-common \
-  #lxsession \
-  #lxpanel \
-  #lxdm \
-  #lxterminal \
-  #pcmanfm \
-  #ttf-dejavu \
-  #zip \
-  #unzip \
- # imagemagick \
-  #gpicview \
-  #pinta \
-  #meld \
-  #papirus-icon-theme
   
-#systemctl enable lxdm
-
 localectl --no-convert set-x11-keymap "us,ru" "pc105" "" "grp:alt_shift_toggle"
