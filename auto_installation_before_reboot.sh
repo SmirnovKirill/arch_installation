@@ -18,7 +18,9 @@ pacman -S \
   xorg-server \
   xorg-xinit \
   openbox \
-  ttf-dejavu
+  ttf-dejavu \
+  lxterminal \
+  pcmanfm
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
