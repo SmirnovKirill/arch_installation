@@ -4,7 +4,6 @@ set -ex
 
 USER="kirill"
 REPOSITORY_URL="https://github.com/SmirnovKirill/arch_installation.git"
-REPOSITORY_FOLDER="arch_installation"
 WINDOWS_INSTALLED="y"
 WINDOWS_GRUB_ENTRY_TITLE="Microsoft Windows 10"
 GIT_USER_EMAIL="smirnov.kirill.vladimirovich@gmail.com"
@@ -15,7 +14,6 @@ FONT_NAME="sans"
 function substitute_variables() {
   sed -i "s/\$USER/$USER/g" $1
   sed -i "s/\$REPOSITORY_URL/$REPOSITORY_URL/g" $1
-  sed -i "s/\$REPOSITORY_FOLDER/$REPOSITORY_FOLDER/g" $1
   sed -i "s/\$WINDOWS_INSTALLED/$WINDOWS_INSTALLED/g" $1
   sed -i "s/\$WINDOWS_GRUB_ENTRY_TITLE/$WINDOWS_GRUB_ENTRY_TITLE/g" $1
   sed -i "s/\$GIT_USER_EMAIL/$GIT_USER_EMAIL/g" $1
