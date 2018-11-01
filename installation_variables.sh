@@ -11,7 +11,7 @@ GIT_USER_NAME="Kirill Smirnov"
 FONT_SIZE=16
 FONT_NAME="sans"
 
-function substitute_variables() {
+function substitute_variables {
   sudo -u $USER sed -i "s/\$USER/$USER/g" $1
   sudo -u $USER sed -i "s/\$REPOSITORY_URL/${REPOSITORY_URL//\\/\\\\}/g" $1
   sudo -u $USER sed -i "s/\$WINDOWS_INSTALLED/$WINDOWS_INSTALLED/g" $1
