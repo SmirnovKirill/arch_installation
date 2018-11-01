@@ -73,3 +73,6 @@ substitute_variables "/home/$USER/.config/openbox/rc.xml"
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.Xresources" "/home/$USER/.Xresources"
 substitute_variables "/home/$USER/.Xresources"
+
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.gtkrc-2.0" "/home/$USER/.gtkrc-2.0"
+substitute_variables "/home/$USER/.gtkrc-2.0"
