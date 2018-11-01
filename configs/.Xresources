@@ -25,3 +25,10 @@ xterm*color15: rgb:fc/fc/fc
 
 xterm*rightScrollBar: true
 xterm*ScrollBar: true
+
+*VT100*translations: #override \n\
+  Ctrl Shift <Key>C: copy-selection(SELECT) \n\
+  Ctrl Shift <Key>V: insert-selection(SELECT) \n\
+  Ctrl <Btn4Down>: larger-vt-font() \n\
+  Ctrl <Btn5Down>: smaller-vt-font()
+
