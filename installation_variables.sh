@@ -11,7 +11,7 @@ GIT_USER_NAME="Kirill Smirnov"
 FONT_SIZE=16
 FONT_NAME="sans"
 
-function substituteVariables() {
+function substitute_variables() {
   sed -i "s/\$USER/$USER/g" $1
   sed -i "s/\$REPOSITORY_URL/$REPOSITORY_URL/g" $1
   sed -i "s/\$WINDOWS_INSTALLED/$WINDOWS_INSTALLED/g" $1
