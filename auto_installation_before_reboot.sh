@@ -57,12 +57,16 @@ echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
 sudo -u kirill mkdir "/home/$USER/.config" -p
+
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/.bashrc" "/home/$USER/.bashrc"
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/.xinitrc" "/home/$USER/.xinitrc"
+
 sudo -u kirill mkdir "/home/$USER/.config/pcmanfm/default" -p
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
+sudo -u kirill substitute_variables "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
+
 sudo -u kirill cp /etc/xdg/openbox "/home/$USER/.config" -r
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/autostart" "/home/$USER/.config/openbox/autostart"
 sudo -u kirill cp "$CURRENT_DIRECTORY/configs/rc.xml" "/home/$USER/.config/openbox/rc.xml"
-sudo -u kirill sed -i "s/\$FONT_SIZE/$FONT_SIZE/g" "/home/$USER/.config/openbox/rc.xml"
-sudo -u kirill sed -i "s/\$FONT_NAME/$FONT_NAME/g" "/home/$USER/.config/openbox/rc.xml"
+sudo -u kirill substitute_variables "/home/$USER/.config/openbox/autostart"
+sudo -u kirill substitute_variables "/home/$USER/.config/openbox/rc.xml"
