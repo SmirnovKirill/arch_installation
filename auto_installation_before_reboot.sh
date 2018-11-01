@@ -70,3 +70,6 @@ sudo -u $USER cp "$CURRENT_DIRECTORY/configs/autostart" "/home/$USER/.config/ope
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/rc.xml" "/home/$USER/.config/openbox/rc.xml"
 substitute_variables "/home/$USER/.config/openbox/autostart"
 substitute_variables "/home/$USER/.config/openbox/rc.xml"
+
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.Xresources" "/home/$USER/.Xresources"
+substitute_variables "/home/$USER/.Xresources"
