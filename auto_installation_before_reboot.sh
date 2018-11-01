@@ -7,9 +7,11 @@ source "$CURRENT_DIRECTORY/installation_variables.sh"
 
 sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прогрессбар
 
+#base-devel для AUR
 #efibootmgr для граба
 #xorg-xinit для ручной инициализации иксов
 pacman -S \
+  base-devel \
   sudo \
   wpa_supplicant \
   grub \
