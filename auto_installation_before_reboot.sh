@@ -49,24 +49,24 @@ sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
-sudo -u kirill git clone $REPOSITORY_URL /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
-sudo -u kirill git config --global user.email $GIT_USER_EMAIL
-sudo -u kirill git config --global user.name $GIT_USER_NAME 
+sudo -u $USER git clone $REPOSITORY_URL /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
+sudo -u $USER git config --global user.email $GIT_USER_EMAIL
+sudo -u $USER git config --global user.name $GIT_USER_NAME 
 
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
-sudo -u kirill mkdir "/home/$USER/.config" -p
+sudo -u $USER mkdir "/home/$USER/.config" -p
 
-sudo -u kirill cp "$CURRENT_DIRECTORY/configs/.bashrc" "/home/$USER/.bashrc"
-sudo -u kirill cp "$CURRENT_DIRECTORY/configs/.xinitrc" "/home/$USER/.xinitrc"
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.bashrc" "/home/$USER/.bashrc"
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.xinitrc" "/home/$USER/.xinitrc"
 
-sudo -u kirill mkdir "/home/$USER/.config/pcmanfm/default" -p
-sudo -u kirill cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
-sudo -u kirill substitute_variables "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
+sudo -u $USER mkdir "/home/$USER/.config/pcmanfm/default" -p
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop-items-0.conf" "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
+substitute_variables "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
 
-sudo -u kirill cp /etc/xdg/openbox "/home/$USER/.config" -r
-sudo -u kirill cp "$CURRENT_DIRECTORY/configs/autostart" "/home/$USER/.config/openbox/autostart"
-sudo -u kirill cp "$CURRENT_DIRECTORY/configs/rc.xml" "/home/$USER/.config/openbox/rc.xml"
-sudo -u kirill substitute_variables "/home/$USER/.config/openbox/autostart"
-sudo -u kirill substitute_variables "/home/$USER/.config/openbox/rc.xml"
+sudo -u $USER cp /etc/xdg/openbox "/home/$USER/.config" -r
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/autostart" "/home/$USER/.config/openbox/autostart"
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/rc.xml" "/home/$USER/.config/openbox/rc.xml"
+substitute_variables "/home/$USER/.config/openbox/autostart"
+substitute_variables "/home/$USER/.config/openbox/rc.xml"
