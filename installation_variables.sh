@@ -13,7 +13,7 @@ FONT_NAME="sans"
 
 function substitute_variables {
   sudo -u $USER sed -i "s/\$USER/$USER/g" $1
-  sudo -u $USER sed -i "s/\$REPOSITORY_URL/${REPOSITORY_URL//\\/\\\\}/g" $1
+  sudo -u $USER sed -i "s/\$REPOSITORY_URL/${REPOSITORY_URL//\//\\\/}/g" $1
   sudo -u $USER sed -i "s/\$WINDOWS_INSTALLED/$WINDOWS_INSTALLED/g" $1
   sudo -u $USER sed -i "s/\$WINDOWS_GRUB_ENTRY_TITLE/$WINDOWS_GRUB_ENTRY_TITLE/g" $1
   sudo -u $USER sed -i "s/\$GIT_USER_EMAIL/$GIT_USER_EMAIL/g" $1
