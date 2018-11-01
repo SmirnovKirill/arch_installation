@@ -77,4 +77,4 @@ substitute_variables "/home/$USER/.Xresources"
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.gtkrc-2.0" "/home/$USER/.gtkrc-2.0"
 substitute_variables "/home/$USER/.gtkrc-2.0"
 
-sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/*" "/home/$USER/Desktop/"
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
