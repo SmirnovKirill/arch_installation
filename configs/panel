@@ -98,3 +98,21 @@ Plugin {
         IconOnly=0
     }
 }
+
+Plugin {
+  type=batt
+  Config {
+    BackgroundColor=black
+    ChargingColor1=#28f200
+    ChargingColor2=#22cc00
+    DischargingColor1=#ffee00
+    DischargingColor2=#d9ca00
+    HideIfNoBattery=1
+    AlarmCommand=
+    AlarmTime=5
+    BorderWidth=0
+    Size=5
+    ShowExtendedInformation=1
+    BatteryNumber=0
+  }
+}
