@@ -9,6 +9,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 
 #efibootmgr для граба
 #xorg-xinit для ручной инициализации иксов
+#xorg-xinput для отключения тачпада
 pacman -S \
   sudo \
   wpa_supplicant \
@@ -17,6 +18,7 @@ pacman -S \
   vim \
   xorg-server \
   xorg-xinit \
+  xorg-xinput \
   openbox \
   ttf-dejavu \
   xterm \
