@@ -31,6 +31,4 @@
 6.1 git clone https://github.com/SmirnovKirill/arch_installation.git /tmp/arch_installation
 6.2 /tmp/arch_installation/auto_installation_before_reboot.sh
 6.3 перегрузиться
-6.4 sudo ~/arch_installation/auto_installation_after_first_reboot.sh
-6.5 перегрузиться
-6.6 sudo ~/arch_installation/auto_installation_after_second_reboot.sh
+6.4 sudo ~/arch_installation/auto_installation_after_reboot.sh
