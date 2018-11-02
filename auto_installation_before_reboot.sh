@@ -84,9 +84,11 @@ substitute_variables "/home/$USER/.Xresources"
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.gtkrc-2.0" "/home/$USER/.gtkrc-2.0"
 substitute_variables "/home/$USER/.gtkrc-2.0"
 
+sudo -u $USER mkdir "/home/$USER/.config/libfm" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/libfm.conf" "/home/$USER/.config/libfm/libfm.conf"
 substitute_variables "/home/$USER/.config/libfm/libfm.conf"
 
+sudo -u $USER mkdir "/home/$USER/.config/lxpanel/default/panels" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpanel/default/panels/panel"
 substitute_variables "/home/$USER/.config/lxpanel/default/panels/panel"
 
