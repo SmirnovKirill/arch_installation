@@ -56,6 +56,8 @@ sudo -u $USER git config --global user.name $GIT_USER_NAME
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 
+echo "blacklist psmouse" >> /etc/modprobe.d/blacklist.conf #отключение модуля с тачпадом чтобы не сыпались ошибки что устройство не найдено
+
 sudo -u $USER mkdir "/home/$USER/.config" -p
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.bashrc" "/home/$USER/.bashrc"
