@@ -26,19 +26,19 @@ Plugin {
     type = launchbar
     Config {
         Button {
-            id=pcmanfm.desktop
+            id=/home/$USER/Desktop/pcmanfm.desktop
         }
         Button {
-            id=xterm.desktop
+            id=/home/$USER/Desktop/xterm.desktop
         }
         Button {
-            id=chromium.desktop
+            id=/home/$USER/Desktop/chromium.desktop
         }
         Button {
-            id=thunderbird.desktop
+            id=/home/$USER/Desktop/thunderbird.desktop
         }
         Button {
-            id=filezilla.desktop
+            id=/home/$USER/Desktop/filezilla.desktop
         }
     }
 }
