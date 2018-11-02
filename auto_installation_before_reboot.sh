@@ -10,6 +10,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #efibootmgr для граба
 #xorg-xinit для ручной инициализации иксов
 #xorg-xinput для отключения тачпада
+#udiskie для автомонтирования
 pacman -S \
   sudo \
   wpa_supplicant \
@@ -22,7 +23,8 @@ pacman -S \
   openbox \
   ttf-dejavu \
   xterm \
-  pcmanfm
+  pcmanfm \
+  udiskie
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
