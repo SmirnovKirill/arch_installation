@@ -24,7 +24,8 @@ pacman -S \
   ttf-dejavu \
   xterm \
   pcmanfm \
-  udiskie
+  udiskie \
+  lxpanel
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
@@ -86,6 +87,7 @@ substitute_variables "/home/$USER/.gtkrc-2.0"
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/libfm.conf" "/home/$USER/.config/libfm/libfm.conf"
 substitute_variables "/home/$USER/.config/libfm/libfm.conf"
 
-
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpanel/default/panels/panel"
+substitute_variables "/home/$USER/.config/lxpanel/default/panels/panel"
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
