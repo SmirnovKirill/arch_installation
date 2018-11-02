@@ -81,4 +81,9 @@ substitute_variables "/home/$USER/.Xresources"
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.gtkrc-2.0" "/home/$USER/.gtkrc-2.0"
 substitute_variables "/home/$USER/.gtkrc-2.0"
 
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/libfm.conf" "/home/$USER/.config/libfm/libfm.conf"
+substitute_variables "/home/$USER/.config/libfm/libfm.conf"
+
+
+
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
