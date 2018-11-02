@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=PCManFM
+Exec=pcmanfm %U
+Type=Application
+Icon=system-file-manager
