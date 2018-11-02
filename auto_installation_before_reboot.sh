@@ -25,7 +25,8 @@ pacman -S \
   xterm \
   pcmanfm \
   udiskie \
-  lxpanel
+  lxpanel \
+  papirus-icon-theme
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
