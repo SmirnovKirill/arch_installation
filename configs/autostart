@@ -1,2 +1,3 @@
 xinput disable "MSFT0001:00 06CB:7E7E Touchpad"
+udiskie &
 pcmanfm --desktop &
