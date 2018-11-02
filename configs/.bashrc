@@ -10,5 +10,5 @@ alias vi='vim'
 PS1='[\u@\h \W]\$ '
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx
+	exec startx &> /dev/null #не выводить в консоль данные startx
 fi
