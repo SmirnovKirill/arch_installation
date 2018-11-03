@@ -11,6 +11,8 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #xorg-xinit для ручной инициализации иксов
 #xorg-xinput для отключения тачпада
 #udiskie для автомонтирования
+#imagemagick для скриншотов
+#meld для diff
 pacman -S \
   sudo \
   wpa_supplicant \
@@ -26,7 +28,14 @@ pacman -S \
   pcmanfm \
   udiskie \
   lxpanel \
-  papirus-icon-theme
+  papirus-icon-theme \
+  leafpad \
+  imagemagick \
+  meld \
+  filezilla \
+  chromium \
+  jdk-openjdk \
+  thunderbird
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
