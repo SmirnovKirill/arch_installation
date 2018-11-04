@@ -1,1 +1,1 @@
-set clipboard=unnamedplus
+set clipboard=unnamedplus "чтобы использовался clipboard
