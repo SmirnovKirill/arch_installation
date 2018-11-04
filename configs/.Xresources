@@ -2,6 +2,7 @@ xterm*faceName: $FONT_NAME_XTERM
 xterm*faceSize: $FONT_SIZE
 
 xterm*loginshell: true
+xterm*selectToClipboard: true
 
 !Взял из интернета
 xterm*foreground: rgb:a8/a8/a8
