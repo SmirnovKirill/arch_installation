@@ -13,6 +13,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #udiskie для автомонтирования
 #imagemagick для скриншотов
 #meld для diff
+#xarchiver для интеграции с pcmanfm
 pacman -S \
   sudo \
   wpa_supplicant \
@@ -36,7 +37,11 @@ pacman -S \
   filezilla \
   chromium \
   jdk-openjdk \
-  thunderbird
+  jdk8-openjdk \
+  thunderbirdn \
+  xarchiver \
+  zip \
+  unzip
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
