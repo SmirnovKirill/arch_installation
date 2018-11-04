@@ -33,6 +33,7 @@ pacman -S \
   papirus-icon-theme \
   leafpad \
   imagemagick \
+  pinta \
   meld \
   filezilla \
   chromium \
