@@ -18,6 +18,7 @@ pacman -S \
   wpa_supplicant \
   grub \
   efibootmgr \
+  base-devel \
   vim \
   xorg-server \
   xorg-xinit \
