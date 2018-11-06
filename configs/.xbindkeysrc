@@ -1,0 +1,17 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 1.8.6
+#
+
+"xbacklight -inc 10"
+  XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+  XF86MonBrightnessDown
+
+##################################
+# End of xbindkeys configuration #
+##################################
