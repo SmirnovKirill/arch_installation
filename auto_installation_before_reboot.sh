@@ -68,6 +68,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m $USER
 passwd $USER
 sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
+usermod -a -G video $USER #группа для работы с яркостью экрана
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
