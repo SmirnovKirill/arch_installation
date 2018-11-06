@@ -121,3 +121,5 @@ sudo -u $USER mkdir "/home/$USER/.sqldeveloper/18.3.0" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/product.conf" "/home/$USER/.sqldeveloper/18.3.0/product.conf"
 
 cp "$CURRENT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlight.rules"
+
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.xbindkeys" "/home/$USER/.xbindkeys"
