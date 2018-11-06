@@ -25,6 +25,7 @@ pacman -S \
   xorg-xinit \
   xorg-xinput \
   openbox \
+  xbindkeys \
   ttf-dejavu \
   xterm \
   pcmanfm \
