@@ -122,4 +122,4 @@ sudo -u $USER cp "$CURRENT_DIRECTORY/configs/product.conf" "/home/$USER/.sqldeve
 
 cp "$CURRENT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlight.rules"
 
-sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.xbindkeys" "/home/$USER/.xbindkeys"
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.xbindkeysrc" "/home/$USER/.xbindkeysrc"
