@@ -1,0 +1,2 @@
+SUBSYSTEM=="backlight", ACTION=="add", \
+  RUN+="/sys/class/backlight/%k/brightness"
