@@ -40,7 +40,7 @@ pacman -S \
   chromium \
   jdk-openjdk \
   jdk8-openjdk \
-  thunderbirdn \
+  thunderbird \
   xarchiver \
   zip \
   unzip
