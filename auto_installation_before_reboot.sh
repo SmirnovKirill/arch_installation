@@ -128,6 +128,9 @@ cd /home/$USER/AUR/acpilight
 sudo -u $USER makepkg -si
 cd /home/$USER
 
+sudo -u $USER mkdir "/home/$USER/.ssh" -p
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa.pub" "/home/$USER/.ssh/"
+
 sudo -u $USER mkdir "/home/$USER/software" -p
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/telegram" "/home/$USER/software/" -r
