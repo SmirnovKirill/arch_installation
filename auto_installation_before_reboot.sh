@@ -112,6 +112,7 @@ substitute_variables "/home/$USER/.config/lxpanel/default/panels/panel"
 
 sudo -u $USER mkdir "/home/$USER/Desktop" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
+substitute_variables "/home/$USER/Desktop/telegram.desktop"
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.vimrc" "/home/$USER/.vimrc"
 substitute_variables "/home/$USER/.vimrc"
