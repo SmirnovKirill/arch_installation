@@ -39,7 +39,6 @@ pacman -S \
   filezilla \
   chromium \
   jdk-openjdk \
-  jdk8-openjdk \
   thunderbird \
   xarchiver \
   zip \
@@ -116,9 +115,6 @@ sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.vimrc" "/home/$USER/.vimrc"
 substitute_variables "/home/$USER/.vimrc"
-
-sudo -u $USER mkdir "/home/$USER/.sqldeveloper/18.3.0" -p
-sudo -u $USER cp "$CURRENT_DIRECTORY/configs/product.conf" "/home/$USER/.sqldeveloper/18.3.0/product.conf"
 
 cp "$CURRENT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlight.rules"
 
