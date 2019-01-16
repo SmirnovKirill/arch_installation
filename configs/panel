@@ -40,6 +40,9 @@ Plugin {
         Button {
             id=/home/$USER/Desktop/filezilla.desktop
         }
+	Button {
+            id=/home/$USER/Desktop/telegram.desktop
+        }
     }
 }
 
