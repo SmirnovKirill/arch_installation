@@ -126,3 +126,6 @@ sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/AUR/
 sudo -u $USER cd /home/$USER/AUR/acpilight
 makepkg -si
 sudo -u $USER cd /home/$USER
+
+sudo -u $USER mkdir "/home/$USER/software" -p
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/telegram" "/home/$USER/software/" -c

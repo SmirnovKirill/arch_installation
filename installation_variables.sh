@@ -11,6 +11,7 @@ GIT_USER_NAME="Kirill Smirnov"
 FONT_SIZE=16
 FONT_NAME="DejaVuSans"
 FONT_NAME_XTERM="DejaVuSansMono" #Xterm нужен моноширинный шрифт
+USB_NAME="ARCH_201810"
 
 function substitute_variables {
   sudo -u $USER sed -i "s/\$USER/$USER/g" $1
@@ -22,4 +23,5 @@ function substitute_variables {
   sudo -u $USER sed -i "s/\$FONT_SIZE/$FONT_SIZE/g" $1
   sudo -u $USER sed -i "s/\$FONT_NAME/$FONT_NAME/g" $1
   sudo -u $USER sed -i "s/\$FONT_NAME_XTERM/$FONT_NAME_XTERM/g" $1
+  sudo -u $USER sed -i "s/\$USB_NAME/$USB_NAME/g" $1
 }
