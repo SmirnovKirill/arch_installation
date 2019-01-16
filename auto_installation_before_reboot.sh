@@ -124,9 +124,9 @@ sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.xbindkeysrc" "/home/$USER/.xbindke
 sudo -u $USER mkdir "/home/$USER/AUR" -p
 
 sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/AUR/acpilight #управление яркостью
-sudo -u $USER cd /home/$USER/AUR/acpilight
+cd /home/$USER/AUR/acpilight
 makepkg -si
-sudo -u $USER cd /home/$USER
+cd /home/$USER
 
 sudo -u $USER mkdir "/home/$USER/software" -p
 
