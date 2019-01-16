@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Telegram
-Exec=/home/$USER/software/Telegram
+Exec=/home/$USER/software/telegram/Telegram
 Type=Application
 Icon=telegram
