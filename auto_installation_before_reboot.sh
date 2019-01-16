@@ -42,7 +42,8 @@ pacman -S \
   thunderbird \
   xarchiver \
   zip \
-  unzip
+  unzip \
+  subversion
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB

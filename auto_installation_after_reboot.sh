@@ -20,6 +20,7 @@ substitute_variables "/home/$USER/software/idea/bin/idea64.vmoptions"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/tomcat" "/home/$USER/software/" -r
 chmod +x "/home/$USER/software/tomcat/bin/startup.sh"
+chmod +x "/home/$USER/software/tomcat/bin/catalina.sh"
 chmod +x "/home/$USER/software/tomcat/bin/shutdown.sh"
 
 #локаль, время
