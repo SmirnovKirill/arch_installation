@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Idea
+Exec=/home/$USER/software/idea/bin/idea.sh
+Type=Application
+Icon=idea

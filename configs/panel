@@ -37,6 +37,9 @@ Plugin {
         Button {
             id=/home/$USER/Desktop/thunderbird.desktop
         }
+	Button {
+            id=/home/$USER/Desktop/idea.desktop
+        }
         Button {
             id=/home/$USER/Desktop/filezilla.desktop
         }
