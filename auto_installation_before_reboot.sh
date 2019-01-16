@@ -127,20 +127,3 @@ sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/AUR/
 cd /home/$USER/AUR/acpilight
 sudo -u $USER makepkg -si
 cd /home/$USER
-
-sudo -u $USER mkdir "/home/$USER/.ssh" -p
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa.pub" "/home/$USER/.ssh/"
-
-sudo -u $USER mkdir "/home/$USER/software" -p
-
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/telegram" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/telegram/Telegram"
-
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/idea" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/idea/bin/idea.sh"
-substitute_variables "/home/$USER/software/idea/bin/idea.vmoptions"
-substitute_variables "/home/$USER/software/idea/bin/idea64.vmoptions"
-
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/tomcat" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/tomcat/startup.sh"
-chmod +x "/home/$USER/software/tomcat/shutdown.sh"
