@@ -125,7 +125,7 @@ sudo -u $USER mkdir "/home/$USER/AUR" -p
 
 sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/AUR/acpilight #управление яркостью
 cd /home/$USER/AUR/acpilight
-makepkg -si
+sudo -u $USER makepkg -si
 cd /home/$USER
 
 sudo -u $USER mkdir "/home/$USER/software" -p
@@ -134,7 +134,7 @@ sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/telegram" "/home/
 chmod +x "/home/$USER/software/telegram/Telegram"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/idea" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/idea/idea.sh"
+chmod +x "/home/$USER/software/idea/bin/idea.sh"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/tomcat" "/home/$USER/software/" -r
 chmod +x "/home/$USER/software/tomcat/startup.sh"
