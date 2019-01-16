@@ -19,8 +19,8 @@ substitute_variables "/home/$USER/software/idea/bin/idea.vmoptions"
 substitute_variables "/home/$USER/software/idea/bin/idea64.vmoptions"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/tomcat" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/tomcat/startup.sh"
-chmod +x "/home/$USER/software/tomcat/shutdown.sh"
+chmod +x "/home/$USER/software/tomcat/bin/startup.sh"
+chmod +x "/home/$USER/software/tomcat/bin/shutdown.sh"
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
