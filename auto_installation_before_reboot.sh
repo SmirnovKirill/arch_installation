@@ -13,6 +13,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #udiskie для автомонтирования
 #imagemagick для скриншотов
 #meld для diff
+#jdk8-openjdk для sqldeveloper
 #xarchiver для интеграции с pcmanfm
 pacman -S \
   sudo \
@@ -39,6 +40,7 @@ pacman -S \
   filezilla \
   chromium \
   jdk-openjdk \
+  jdk8-openjdk \
   thunderbird \
   xarchiver \
   zip \
