@@ -111,6 +111,9 @@ sudo -u $USER mkdir "/home/$USER/.config/lxpanel/default/panels" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/panel" "/home/$USER/.config/lxpanel/default/panels/panel"
 substitute_variables "/home/$USER/.config/lxpanel/default/panels/panel"
 
+sudo -u $USER mkdir "/home/$USER/.sqldeveloper/$SQLDEVELOPER_VERSION/" -p
+sudo -u $USER cp "$CURRENT_DIRECTORY/configs/product.conf" "/home/$USER/.sqldeveloper/$SQLDEVELOPER_VERSION/"
+
 sudo -u $USER mkdir "/home/$USER/Desktop" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
 substitute_variables "/home/$USER/Desktop/telegram.desktop"

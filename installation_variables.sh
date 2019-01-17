@@ -12,6 +12,7 @@ FONT_SIZE=16
 FONT_NAME="DejaVuSans"
 FONT_NAME_XTERM="DejaVuSansMono" #Xterm нужен моноширинный шрифт
 USB_NAME="ARCH_201901"
+SQLDEVELOPER_VERSION="18.4.0"
 
 function substitute_variables {
   sudo -u $USER sed -i "s/\$USER/$USER/g" $1
@@ -24,4 +25,5 @@ function substitute_variables {
   sudo -u $USER sed -i "s/\$FONT_NAME/$FONT_NAME/g" $1
   sudo -u $USER sed -i "s/\$FONT_NAME_XTERM/$FONT_NAME_XTERM/g" $1
   sudo -u $USER sed -i "s/\$USB_NAME/$USB_NAME/g" $1
+  sudo -u $USER sed -i "s/\$SQLDEVELOPER_VERSION/$SQLDEVELOPER_VERSION/g" $1
 }
