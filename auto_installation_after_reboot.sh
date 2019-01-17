@@ -24,7 +24,7 @@ chmod +x "/home/$USER/software/tomcat/bin/catalina.sh"
 chmod +x "/home/$USER/software/tomcat/bin/shutdown.sh"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/sqldeveloper" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/sqldeveloper/bin/sqldeveloper.sh"
+chmod +x "/home/$USER/software/sqldeveloper/sqldeveloper.sh"
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
