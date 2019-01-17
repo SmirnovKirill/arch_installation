@@ -115,6 +115,7 @@ sudo -u $USER mkdir "/home/$USER/Desktop" -p
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/desktop/"* "/home/$USER/Desktop/"
 substitute_variables "/home/$USER/Desktop/telegram.desktop"
 substitute_variables "/home/$USER/Desktop/idea.desktop"
+substitute_variables "/home/$USER/Desktop/sqldeveloper.desktop"
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.vimrc" "/home/$USER/.vimrc"
 substitute_variables "/home/$USER/.vimrc"

@@ -38,10 +38,13 @@ Plugin {
             id=/home/$USER/Desktop/thunderbird.desktop
         }
 	Button {
-            id=/home/$USER/Desktop/idea.desktop
+            id=/home/$USER/Desktop/sqldeveloper.desktop
         }
-        Button {
+	Button {
             id=/home/$USER/Desktop/filezilla.desktop
+        }
+	Button {
+            id=/home/$USER/Desktop/idea.desktop
         }
 	Button {
             id=/home/$USER/Desktop/telegram.desktop
