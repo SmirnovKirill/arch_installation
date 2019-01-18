@@ -52,8 +52,9 @@ pacman -S \
   openssh \
   transmission-gtk \
   vlc \
-  calibre \
-  maven
+  evince \
+  maven \
+  libreoffice-still
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
