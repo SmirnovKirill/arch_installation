@@ -5,6 +5,8 @@ set -ex
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/installation_variables.sh"
 
+systemctl enable NetworkManager
+
 sudo -u $USER mkdir "/home/$USER/.ssh" -p
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa.pub" "/home/$USER/.ssh/"
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa" "/home/$USER/.ssh/"
