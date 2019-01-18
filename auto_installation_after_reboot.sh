@@ -29,7 +29,7 @@ sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/sqldeveloper" "/h
 chmod +x "/home/$USER/software/sqldeveloper/sqldeveloper.sh"
 
 sudo -u $USER mkdir "/home/$USER/network" -p
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/network/*.conf" "/home/$USER/netwok/" -r
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/network/." "/home/$USER/network/" -r
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
