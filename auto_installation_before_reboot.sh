@@ -49,7 +49,8 @@ pacman -S \
   networkmanager \
   network-manager-applet \
   networkmanager-openvpn \
-  openssh
+  openssh \
+  transmission-gtk
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
