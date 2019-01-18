@@ -45,7 +45,11 @@ pacman -S \
   xarchiver \
   zip \
   unzip \
-  subversion
+  subversion \
+  networkmanager \
+  network-manager-applet \
+  networkmanager-openvpn \
+  openssh
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
@@ -129,9 +133,9 @@ cp "$CURRENT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlig
 
 sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.xbindkeysrc" "/home/$USER/.xbindkeysrc"
 
-sudo -u $USER mkdir "/home/$USER/AUR" -p
+sudo -u $USER mkdir "/home/$USER/software/AUR" -p
 
-sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/AUR/acpilight #управление яркостью
-cd /home/$USER/AUR/acpilight
+sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/software/AUR/acpilight #управление яркостью
+cd /home/$USER/software/AUR/acpilight
 sudo -u $USER makepkg -si
 cd /home/$USER

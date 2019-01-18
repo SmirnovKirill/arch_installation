@@ -7,8 +7,7 @@ source "$CURRENT_DIRECTORY/installation_variables.sh"
 
 sudo -u $USER mkdir "/home/$USER/.ssh" -p
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa.pub" "/home/$USER/.ssh/"
-
-sudo -u $USER mkdir "/home/$USER/software" -p
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa" "/home/$USER/.ssh/"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/telegram" "/home/$USER/software/" -r
 chmod +x "/home/$USER/software/telegram/Telegram"
