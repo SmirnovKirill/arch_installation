@@ -50,7 +50,9 @@ pacman -S \
   network-manager-applet \
   networkmanager-openvpn \
   openssh \
-  transmission-gtk
+  transmission-gtk \
+  vlc \
+  bookworm
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
