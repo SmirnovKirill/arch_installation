@@ -88,6 +88,7 @@ sudo -u $USER git config --global user.name $GIT_USER_NAME
 
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
+echo "SVN_SSH=ssh -l svn" >> /etc/environment
 
 echo "blacklist psmouse" >> /etc/modprobe.d/blacklist.conf #отключение модуля с тачпадом чтобы не сыпались ошибки что устройство не найдено
 
