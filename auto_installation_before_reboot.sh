@@ -39,7 +39,6 @@ pacman -S \
   meld \
   filezilla \
   chromium \
-  jdk-openjdk \
   jdk8-openjdk \
   thunderbird \
   xarchiver \
