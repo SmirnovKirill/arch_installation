@@ -145,3 +145,8 @@ sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/soft
 cd /home/$USER/software/AUR/acpilight
 sudo -u $USER makepkg -si
 cd /home/$USER
+
+sudo -u $USER git clone https://aur.archlinux.org/unetbootin.git /home/$USER/software/AUR/unetbootin
+cd /home/$USER/software/AUR/unetbootin
+sudo -u $USER makepkg -si
+cd /home/$USER
