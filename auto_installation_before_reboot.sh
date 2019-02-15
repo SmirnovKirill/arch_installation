@@ -80,7 +80,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m $USER
 passwd $USER
 sed -i "/root ALL=(ALL) ALL/a $USER ALL=(ALL) ALL" /etc/sudoers
-usermod -a -G video $USER #группа для работы с яркостью экрана
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
@@ -92,7 +91,10 @@ echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 echo "SVN_SSH=ssh -l svn" >> /etc/environment
 
-echo "blacklist psmouse" >> /etc/modprobe.d/blacklist.conf #отключение модуля с тачпадом чтобы не сыпались ошибки что устройство не найдено
+if [[ $MODE == "LAPTOP" ]]; then
+  usermod -a -G video $USER #группа для работы с яркостью экрана
+  echo "blacklist psmouse" >> /etc/modprobe.d/blacklist.conf #отключение модуля с тачпадом чтобы не сыпались ошибки что устройство не найдено
+fi
 
 sudo -u $USER mkdir "/home/$USER/.config" -p
 
