@@ -13,6 +13,7 @@ FONT_NAME="DejaVuSans"
 FONT_NAME_XTERM="DejaVuSansMono" #Xterm нужен моноширинный шрифт
 USB_NAME="ARCH_201901"
 SQLDEVELOPER_VERSION="18.4.0"
+MODE="LAPTOP" #LAPTOP/WORK/HOME
 
 function substitute_variables {
   sudo -u $USER sed -i "s/\$USER/$USER/g" $1
