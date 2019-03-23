@@ -45,6 +45,7 @@ pacman -S \
   zip \
   unzip \
   unrar \
+  p7zip \
   subversion \
   networkmanager \
   network-manager-applet \
