@@ -147,3 +147,11 @@ sudo -u $USER git clone https://aur.archlinux.org/acpilight.git /home/$USER/soft
 cd /home/$USER/software/AUR/acpilight
 sudo -u $USER makepkg -si
 cd /home/$USER
+
+#На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
+if [[ $MODE == "HOME" ]]; then
+  sudo -u $USER git clone https://aur.archlinux.org/k290-fnkeyctl.git /home/$USER/software/AUR/k290-fnkeyctl
+  cd /home/$USER/software/AUR/k290-fnkeyctl
+  sudo -u $USER makepkg -si
+  cd /home/$USER
+fi
