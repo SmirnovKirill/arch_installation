@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Chromium
-Exec=/usr/bin/chromium %U
-Icon=chromium
+Name=Chrome
+Exec=/usr/bin/google-chrome-stable %U
+Icon=chrome
 Type=Application
