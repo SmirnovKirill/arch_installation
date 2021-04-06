@@ -49,6 +49,9 @@ Plugin {
 	Button {
             id=/home/$USER/Desktop/slack.desktop
         }
+	Button {
+            id=/home/$USER/Desktop/teams.desktop
+        }
     }
 }
 
