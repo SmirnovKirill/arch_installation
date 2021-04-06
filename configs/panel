@@ -46,6 +46,9 @@ Plugin {
 	Button {
             id=/home/$USER/Desktop/telegram.desktop
         }
+	Button {
+            id=/home/$USER/Desktop/slack.desktop
+        }
     }
 }
 
