@@ -153,3 +153,8 @@ if [[ $MODE == "HOME" ]]; then
   sudo -u $USER makepkg -si
   cd /home/$USER
 fi
+
+sudo -u $USER git clone https://aur.archlinux.org/google-chrome.git /home/$USER/software/AUR/chrome
+cd /home/$USER/software/AUR/chrome
+sudo -u $USER makepkg -si
+cd /home/$USER
