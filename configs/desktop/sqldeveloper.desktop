@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=SQL Developer
-Exec=/home/$USER/software/sqldeveloper/sqldeveloper.sh
-Type=Application
-Icon=sqldeveloper
