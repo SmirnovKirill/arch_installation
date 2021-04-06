@@ -22,7 +22,7 @@
 2.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
 2.6 dhcpcd wlp2s0 (заменить на нужное)
 
-3 pacstrap /mnt base git
+3 pacstrap /mnt base linux linux-firmware git
 
 4 genfstab -U /mnt >> /mnt/etc/fstab
 
