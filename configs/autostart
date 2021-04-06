@@ -3,3 +3,5 @@ lxpanel &
 udiskie --tray &
 pcmanfm --desktop &
 nm-applet &
+slack &
+workrave &
