@@ -32,13 +32,10 @@ Plugin {
             id=/home/$USER/Desktop/xterm.desktop
         }
         Button {
-            id=/home/$USER/Desktop/chromium.desktop
+            id=/home/$USER/Desktop/chrome.desktop
         }
         Button {
             id=/home/$USER/Desktop/thunderbird.desktop
-        }
-	Button {
-            id=/home/$USER/Desktop/sqldeveloper.desktop
         }
 	Button {
             id=/home/$USER/Desktop/filezilla.desktop
