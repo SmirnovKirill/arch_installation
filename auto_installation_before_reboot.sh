@@ -15,6 +15,7 @@ sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прог�
 #meld для diff
 #jdk8-openjdk для sqldeveloper
 #xarchiver для интеграции с pcmanfm
+#pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
 pacman -S \
   sudo \
   wpa_supplicant \
@@ -56,7 +57,10 @@ pacman -S \
   evince \
   maven \
   libreoffice-still \
-  workrave
+  workrave \
+  pulseaudio-alsa \
+  pulseaudio-bluetooth \
+  bluez-utils
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
