@@ -163,6 +163,11 @@ cd /home/$USER/software/AUR/chrome
 sudo -u $USER makepkg -si
 cd /home/$USER
 
+sudo -u $USER git clone https://aur.archlinux.org/zoom.git /home/$USER/software/AUR/zoom
+cd /home/$USER/software/AUR/zoom
+sudo -u $USER makepkg -si
+cd /home/$USER
+
 if [[ $MODE == "HEADHUNTER" ]]; then
   sudo -u $USER git clone https://aur.archlinux.org/slack-desktop.git /home/$USER/software/AUR/slack
   cd /home/$USER/software/AUR/slack
