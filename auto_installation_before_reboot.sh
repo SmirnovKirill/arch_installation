@@ -60,7 +60,8 @@ pacman -S \
   workrave \
   pulseaudio-alsa \
   pulseaudio-bluetooth \
-  bluez-utils
+  bluez-utils \
+  physlock
     
 #загрузчик
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
