@@ -1,7 +1,8 @@
-xinput disable "MSFT0001:00 06CB:7E7E Touchpad"
+xinput disable "MSFT0001:00 06CB:7E7E Touchpad" #домашний ноут
+xinput disable "Elan Touchpad" #рабочий ноут
 lxpanel &
 udiskie --tray &
 pcmanfm --desktop &
 nm-applet &
-slack &
+mattermost-desktop &
 workrave &
