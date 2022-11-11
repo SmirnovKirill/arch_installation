@@ -5,15 +5,11 @@ set -ex
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/installation_variables.sh"
 
-sed -i 's/#TotalDownload/TotalDownload/g' /etc/pacman.conf #общий прогрессбар
-
 #efibootmgr для граба
 #xorg-xinit для ручной инициализации иксов
 #xorg-xinput для отключения тачпада
 #udiskie для автомонтирования
 #imagemagick для скриншотов
-#meld для diff
-#jdk8-openjdk для sqldeveloper
 #xarchiver для интеграции с pcmanfm
 #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
 pacman -S \
@@ -37,17 +33,15 @@ pacman -S \
   leafpad \
   imagemagick \
   pinta \
-  meld \
   filezilla \
-  jdk8-openjdk \
   jdk11-openjdk \
+  jdk17-openjdk \
   thunderbird \
   xarchiver \
   zip \
   unzip \
   unrar \
   p7zip \
-  subversion \
   networkmanager \
   network-manager-applet \
   networkmanager-openvpn \
