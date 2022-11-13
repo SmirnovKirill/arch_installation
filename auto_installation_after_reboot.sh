@@ -5,31 +5,36 @@ set -ex
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/installation_variables.sh"
 
-systemctl enable NetworkManager
+systemctl enable NetworkManager --now
+systemctl enable avahi-daemon --now
+systemctl enable bluetooth --now
+systemctl enable docker --now
+
+sudo -u $USER cat "$CURRENT_DIRECTORY/configs/workrave.ini" | dconf load /
 
 sudo -u $USER mkdir "/home/$USER/.ssh" -p
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa.pub" "/home/$USER/.ssh/"
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/id_rsa" "/home/$USER/.ssh/"
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/ssh/"* "/home/$USER/.ssh/"
 sudo -u $USER chmod 700 "/home/$USER/.ssh/id_rsa"
-
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/telegram" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/telegram/Telegram"
+sudo -u $USER chmod 700 "/home/$USER/.ssh/test-stand-key"
+sudo -u $USER chmod 700 "/home/$USER/.ssh/pkey.hh"
 
 sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/idea" "/home/$USER/software/" -r
 chmod +x "/home/$USER/software/idea/bin/idea.sh"
-substitute_variables "/home/$USER/software/idea/bin/idea.vmoptions"
-substitute_variables "/home/$USER/software/idea/bin/idea64.vmoptions"
 
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/tomcat" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/tomcat/bin/startup.sh"
-chmod +x "/home/$USER/software/tomcat/bin/catalina.sh"
-chmod +x "/home/$USER/software/tomcat/bin/shutdown.sh"
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/maven/settings.xml" "/home/$USER/.m2/settings.xml"
 
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/sqldeveloper" "/home/$USER/software/" -r
-chmod +x "/home/$USER/software/sqldeveloper/sqldeveloper.sh"
+sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/.thunderbird" "/home/$USER/" -r
 
-sudo -u $USER mkdir "/home/$USER/network" -p
-sudo -u $USER cp "/run/media/$USER/$USB_NAME/arch_installation/network/." "/home/$USER/network/" -r
+cp "/run/media/$USER/$USB_NAME/arch_installation/network/"* "/etc/NetworkManager/system-connections/"
+chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
+nmcli connection reload
+
+if [[ $MODE == "WORK" ]]; #Чтобы на стендах https работал
+then
+  cp "/run/media/$USER/$USB_NAME/arch_installation/hhtestersCAnew.crt" "/tmp/"
+  trust anchor --store /tmp/hhtestersCAnew.crt
+  update-ca-trust
+fi
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime

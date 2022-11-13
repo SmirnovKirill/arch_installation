@@ -34,23 +34,29 @@ Plugin {
         Button {
             id=/home/$USER/Desktop/chrome.desktop
         }
+         Button {
+            id=/home/$USER/Desktop/leafpad.desktop
+        }
         Button {
             id=/home/$USER/Desktop/thunderbird.desktop
         }
-	Button {
+        Button {
             id=/home/$USER/Desktop/filezilla.desktop
         }
-	Button {
+        Button {
             id=/home/$USER/Desktop/idea.desktop
         }
-	Button {
+        Button {
             id=/home/$USER/Desktop/telegram.desktop
         }
-	Button {
-            id=/home/$USER/Desktop/slack.desktop
+        Button {
+            id=/home/$USER/Desktop/mattermost.desktop
         }
-	Button {
+        Button {
             id=/home/$USER/Desktop/teams.desktop
+        }
+        Button {
+            id=/home/$USER/Desktop/transmission.desktop
         }
     }
 }
