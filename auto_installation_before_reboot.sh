@@ -76,6 +76,7 @@ pacman -S \
   docker \
   kubectl \
   python \
+  python-pip \
   skaffold \
   telegram-desktop \
   dconf
