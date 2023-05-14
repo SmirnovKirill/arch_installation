@@ -155,10 +155,13 @@ install_from_aur https://aur.archlinux.org/acpilight.git /home/$USER/software/AU
 install_from_aur https://aur.archlinux.org/google-chrome.git /home/$USER/software/AUR/chrome
 install_from_aur https://aur.archlinux.org/zoom.git /home/$USER/software/AUR/zoom
 
-#На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
 if [[ $MODE == "DESKTOP" ]];
 then
+  #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
   install_from_aur https://aur.archlinux.org/k290-fnkeyctl.git /home/$USER/software/AUR/k290-fnkeyctl
+
+  #Для wifi модуля
+  install_from_aur https://aur.archlinux.org/rtl88xxau-aircrack-dkms-git.git /home/$USER/software/AUR/rtl88xxau-aircrack-dkms-git
 fi
 
 install_from_aur https://aur.archlinux.org/teams-for-linux.git /home/$USER/software/AUR/teams
