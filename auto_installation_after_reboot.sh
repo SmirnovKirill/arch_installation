@@ -29,12 +29,9 @@ cp "/run/media/$USER/$USB_NAME/arch_installation/network/"* "/etc/NetworkManager
 chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
 nmcli connection reload
 
-if [[ $MODE == "WORK" ]]; #Чтобы на стендах https работал
-then
-  cp "/run/media/$USER/$USB_NAME/arch_installation/hhtestersCAnew.crt" "/tmp/"
-  trust anchor --store /tmp/hhtestersCAnew.crt
-  update-ca-trust
-fi
+cp "/run/media/$USER/$USB_NAME/arch_installation/hhtestersCAnew.crt" "/tmp/"
+trust anchor --store /tmp/hhtestersCAnew.crt
+update-ca-trust
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime

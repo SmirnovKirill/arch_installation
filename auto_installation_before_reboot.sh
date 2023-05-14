@@ -81,7 +81,7 @@ pacman -S \
   telegram-desktop \
   dconf
 
-if [[ $MODE == "WORK" ]];
+if [[ $MODE == "LAPTOP" ]];
 then
   #sof-firmware чтобы звук работал
   pacman -S \
@@ -118,13 +118,8 @@ passwd -l root #отключаем возможность логиниться �
 gpasswd -a $USER docker #иначе контейнер с постгресом в тестах не поднимался
 
 sudo -u $USER git clone $REPOSITORY_URL /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
-if [[ $MODE == "WORK" ]]; 
-then
-  sudo -u $USER git config --global user.email $GIT_USER_EMAIL_WORK
-else
-  sudo -u $USER git config --global user.email $GIT_USER_EMAIL_HOME
-fi  
-sudo -u $USER git config --global user.name $GIT_USER_NAME 
+sudo -u $USER git config --global user.email $GIT_USER_EMAIL_WORK
+sudo -u $USER git config --global user.name $GIT_USER_NAME
 
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
@@ -161,15 +156,12 @@ install_from_aur https://aur.archlinux.org/google-chrome.git /home/$USER/softwar
 install_from_aur https://aur.archlinux.org/zoom.git /home/$USER/software/AUR/zoom
 
 #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
-if [[ $MODE == "HOME" ]];
+if [[ $MODE == "DESKTOP" ]];
 then
   install_from_aur https://aur.archlinux.org/k290-fnkeyctl.git /home/$USER/software/AUR/k290-fnkeyctl
 fi
 
-if [[ $MODE == "WORK" ]]; 
-then
-  install_from_aur https://aur.archlinux.org/teams.git /home/$USER/software/AUR/teams
-fi
+install_from_aur https://aur.archlinux.org/teams-for-linux.git /home/$USER/software/AUR/teams
 
 sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf #чтобы принтер искался
 sed -i 's/Listen \/run\/cups\/cups.sock/#Listen \/run\/cups\/cups.sock/g' /etc/cups/cupsd.conf #чтобы не было бесконечного ожидания принтера при печати
