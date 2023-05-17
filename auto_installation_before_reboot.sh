@@ -79,7 +79,8 @@ pacman -S \
   python-pip \
   skaffold \
   telegram-desktop \
-  dconf
+  dconf \
+  keepass
 
 if [[ $MODE == "LAPTOP" ]];
 then
@@ -165,6 +166,7 @@ then
 fi
 
 install_from_aur https://aur.archlinux.org/teams-for-linux.git /home/$USER/software/AUR/teams
+install_from_aur https://aur.archlinux.org/openambit.git /home/$USER/software/AUR/openambit
 
 sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf #чтобы принтер искался
 sed -i 's/Listen \/run\/cups\/cups.sock/#Listen \/run\/cups\/cups.sock/g' /etc/cups/cupsd.conf #чтобы не было бесконечного ожидания принтера при печати
