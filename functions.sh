@@ -14,7 +14,6 @@ function substitute_variables {
   sudo -u $USER sed -i "s/\$FONT_NAME/$FONT_NAME/g" $1
   sudo -u $USER sed -i "s/\$FONT_NAME_XTERM/$FONT_NAME_XTERM/g" $1
   sudo -u $USER sed -i "s/\$USB_NAME/$USB_NAME/g" $1
-  sudo -u $USER sed -i "s/\$SQLDEVELOPER_VERSION/$SQLDEVELOPER_VERSION/g" $1
 }
 
 function install_from_aur {
