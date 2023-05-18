@@ -167,6 +167,9 @@ fi
 
 install_from_aur https://aur.archlinux.org/teams-for-linux.git /home/$USER/software/AUR/teams
 install_from_aur https://aur.archlinux.org/openambit.git /home/$USER/software/AUR/openambit
+cp /home/$USER/software/AUR/openambit/src/openambit/src/libambit/libambit.rules /etc/udev/rules.d/
+udevadm control --reload-rules
+udevadm trigger #код выше чтобы часы распознавались при подключении
 
 sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf #чтобы принтер искался
 sed -i 's/Listen \/run\/cups\/cups.sock/#Listen \/run\/cups\/cups.sock/g' /etc/cups/cupsd.conf #чтобы не было бесконечного ожидания принтера при печати
