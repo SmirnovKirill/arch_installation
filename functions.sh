@@ -22,4 +22,3 @@ function install_from_aur {
   sudo -u $USER makepkg -si
   cd /home/$USER
 }
-
