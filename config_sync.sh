@@ -5,6 +5,7 @@ set -ex
 function config_sync {
   sudo -u $USER cp "$1/configs/.bashrc" "/home/$USER/.bashrc"
   sudo -u $USER cp "$1/configs/.xinitrc" "/home/$USER/.xinitrc"
+  sudo -u $USER cp "$1/configs/.bash_history" "/home/$USER/.bash_history"
 
   sudo -u $USER cp "$1/configs/desktop-items-0.conf" "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
   substitute_variables "/home/$USER/.config/pcmanfm/default/desktop-items-0.conf"
