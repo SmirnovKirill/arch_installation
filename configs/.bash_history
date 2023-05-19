@@ -15,7 +15,8 @@ ps -ef | grep -i chrom | awk '{print $2}' | xargs kill -9
 ps -ef | grep -i idea | awk '{print $2}' | xargs kill -9
 ps -ef | grep -i lxpanel | awk '{print $2}' | xargs kill -9
 pulseaudio -k
-bluetoothctl
+bluetoothctl power on
+bluetoothctl power off
 makepkg -si
 ffplay /dev/video0
 disown
