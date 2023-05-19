@@ -24,3 +24,5 @@ reboot
 sh -c 'xrandr --output HDMI-2 --off --output eDP-1 --mode 1920x1080 --rate 60'
 sh -c 'xrandr --output HDMI-2 --mode 2560x1080 --rate 60.00 --output eDP-1 --off'
 git clone git@github.com:hhru/hh.ru
+python3.9 -m venv venv
+venv/bin/python -m pip install -r requirements.txt
