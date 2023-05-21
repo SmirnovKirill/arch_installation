@@ -9,6 +9,7 @@ systemctl enable NetworkManager --now
 systemctl enable avahi-daemon --now
 systemctl enable bluetooth --now
 systemctl enable docker --now
+systemctl enable cups --now
 
 sudo -u $USER cat "$CURRENT_DIRECTORY/configs/workrave.ini" | dconf load /
 
