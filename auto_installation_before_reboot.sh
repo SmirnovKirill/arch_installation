@@ -12,6 +12,7 @@ source "$CURRENT_DIRECTORY/config_sync.sh"
 #xorg-xinput для отключения тачпада
 #udiskie для автомонтирования
 #ntfs-3g чтобы ntfs можно было смотреть
+#lxqt-notificationd и libnotify для уведомлений на рабочем столе https://wiki.archlinux.org/title/Desktop_notifications
 #imagemagick для скриншотов
 #xarchiver для интеграции с pcmanfm
 #strongswan для l2tp
@@ -35,6 +36,8 @@ pacman -S \
   udiskie \
   ntfs-3g \
   lxpanel \
+  lxqt-notificationd \
+  libnotify \
   papirus-icon-theme \
   leafpad \
   imagemagick \
