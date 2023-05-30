@@ -1,5 +1,6 @@
 ssh ts62.pyn.ru
 ssh oper
+ssh log2
 pacmd list-cards
 pacmd set-card-profile 1 a2dp_sink
 git reflog
@@ -27,3 +28,4 @@ git clone git@github.com:hhru/hh.ru
 python3.9 -m venv venv
 venv/bin/python -m pip install -r requirements.txt
 setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
+scp k.smirnov@log2:/tmp/file /tmp/
