@@ -4,10 +4,10 @@ ssh log2
 pacmd list-cards
 pacmd set-card-profile 1 a2dp_sink
 git reflog
-mvn clean install
-mvn clean install -DskipTests
-mvn clean deploy
 mvn clean deploy -DskipTests
+mvn clean deploy
+mvn clean install -DskipTests
+mvn clean install
 eval `ssh-agent`
 ssh-add ~/.ssh/pkey.hh
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
