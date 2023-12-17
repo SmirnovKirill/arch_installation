@@ -1,13 +1,14 @@
 ssh ts62.pyn.ru
 ssh oper
+ssh log1
 ssh log2
 pacmd list-cards
 pacmd set-card-profile 1 a2dp_sink
 git reflog
-mvn clean deploy -DskipTests
-mvn clean deploy
-mvn clean install -DskipTests
-mvn clean install
+mvn clean deploy -Dmaven.compiler.showDeprecation -DskipTests
+mvn clean deploy -Dmaven.compiler.showDeprecation
+mvn clean install -Dmaven.compiler.showDeprecation -DskipTests
+mvn clean install -Dmaven.compiler.showDeprecation
 eval `ssh-agent`
 ssh-add ~/.ssh/pkey.hh
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
