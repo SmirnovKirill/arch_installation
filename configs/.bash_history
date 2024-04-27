@@ -30,3 +30,6 @@ python3.9 -m venv venv
 venv/bin/python -m pip install -r requirements.txt
 setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 scp k.smirnov@log2:/tmp/file /tmp/
+python3.11 -m venv venv
+source venv/bin/activate
+pcmanfm .
