@@ -168,7 +168,6 @@ then
   install_from_aur https://aur.archlinux.org/rtl88xxau-aircrack-dkms-git.git /home/$USER/software/AUR/rtl88xxau-aircrack-dkms-git
 fi
 
-install_from_aur https://aur.archlinux.org/teams-for-linux.git /home/$USER/software/AUR/teams
 install_from_aur https://aur.archlinux.org/openambit.git /home/$USER/software/AUR/openambit
 cp /home/$USER/software/AUR/openambit/src/openambit/src/libambit/libambit.rules /etc/udev/rules.d/
 udevadm control --reload-rules
