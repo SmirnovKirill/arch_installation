@@ -1,5 +1,5 @@
 ssh ts62.pyn.ru
-ssh oper
+ssh oper1
 ssh log1
 ssh log2
 pacmd list-cards
