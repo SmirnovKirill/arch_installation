@@ -128,6 +128,7 @@ sudo -u $USER git config --global user.name $GIT_USER_NAME
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 echo "TARGET_TEST_STAND=ts62.pyn.ru" >> /etc/environment
+echo "TEST_STAND_SSH_IDENTITY=file:~/.ssh/pkey.hh" >> /etc/environment
 
 archlinux-java set java-17-openjdk
 
