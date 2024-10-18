@@ -9,6 +9,8 @@ mvn clean deploy -Dmaven.compiler.showDeprecation -DskipTests
 mvn clean deploy -Dmaven.compiler.showDeprecation
 mvn clean install -Dmaven.compiler.showDeprecation -DskipTests
 mvn clean install -Dmaven.compiler.showDeprecation
+mvn test-stand:skaffold-debug-start
+mvn clean compile -PopenapiFromStand -Dcheckstyle.skip=true 
 eval `ssh-agent`
 ssh-add ~/.ssh/pkey.hh
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
@@ -33,3 +35,5 @@ scp k.smirnov@log2:/tmp/file /tmp/
 python3.11 -m venv venv
 source venv/bin/activate
 pcmanfm .
+ffmpeg -i ~/in.mkv -map 0:v -map 0:a -map 0:s -vcodec copy -acodec aac -b:a 384k -scodec copy ~/out.mkv
+ffmpeg -i ~/in.mp3 -map 0:a -acodec copy -map_metadata -1 ~/out.mp3
