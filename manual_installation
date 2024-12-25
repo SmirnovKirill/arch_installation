@@ -19,6 +19,16 @@
 2.2 ip link set wlp2s0 (заменить на нужное) up
 2.3 iw dev wlp2s0 (заменить на нужное) scan	
 2.4 wpa_passphrase MYSSID passphrase > /etc/wpa_supplicant/example.conf
+альтернатива, со сложной аутентификацией:
+network={
+    ssid="YourSSID"
+    key_mgmt=WPA-EAP
+    eap=PEAP
+    identity="your-username"
+    password="your-password"
+    phase1="peaplabel=0"
+    phase2="auth=MSCHAPV2"
+}
 2.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
 2.6 dhcpcd wlp2s0 (заменить на нужное)
 
