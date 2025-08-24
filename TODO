@@ -1,0 +1,11 @@
+1. Добавить глобально dns
+sudo systemctl enable --now systemd-resolved.service
+дописать в конфиг /etc/systemd/resolved.conf и потом рестартнуть 
+[Resolve]
+DNS=8.8.8.8 8.8.4.4
+FallbackDNS=1.1.1.1
+DNSOverTLS=yes
+Domains=~. //тут комент написать что это чтобы по умолчанию применялось а то хоть он и глобальный, по умолчанию может браться для роутера
+
+рестертнуть sudo systemctl restart systemd-resolved
+resolvectl status для проверки
