@@ -37,3 +37,9 @@ source venv/bin/activate
 pcmanfm .
 ffmpeg -i ~/in.mkv -map 0:v -map 0:a -map 0:s -vcodec copy -acodec aac -b:a 384k -scodec copy ~/out.mkv
 ffmpeg -i ~/in.mp3 -map 0:a -acodec copy -map_metadata -1 ~/out.mp3
+/opt/AmneziaVPN/client/AmneziaVPN.sh &
+/opt/cisco/anyconnect/bin/vpnui &
+sudo resolvectl status
+sudo systemctl restart systemd-resolved
+sudo pacman -S archlinux-keyring
+sudo pacman -Syu
