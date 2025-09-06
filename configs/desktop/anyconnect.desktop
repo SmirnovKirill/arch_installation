@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Anyconnect
+Exec=/opt/cisco/anyconnect/bin/vpnui
+Type=Application
+Icon=cisco-anyconnect
