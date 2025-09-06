@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=AmneziaVPN
+Exec=/opt/AmneziaVPN/client/AmneziaVPN.sh
+Type=Application
+Icon=AmneziaVPN
