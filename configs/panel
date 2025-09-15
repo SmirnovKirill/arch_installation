@@ -55,6 +55,15 @@ Plugin {
         Button {
             id=/home/$USER/Desktop/transmission.desktop
         }
+        Button {
+            id=/home/$USER/Desktop/amnezia.desktop
+        }
+        Button {
+            id=/home/$USER/Desktop/anyconnect.desktop
+        }
+        Button {
+            id=/home/$USER/Desktop/obsidian.desktop
+        }
     }
 }
 
