@@ -43,4 +43,4 @@ sudo resolvectl status
 sudo systemctl restart systemd-resolved
 sudo pacman -S archlinux-keyring
 sudo pacman -Syu
-hhtilt java -a negotiations -m server -t ts62.pyn.ru -d 4205
+~/.local/bin/hhtilt java -a negotiations -m server -t ts62.pyn.ru -d 4205
