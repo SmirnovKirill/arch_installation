@@ -22,7 +22,6 @@ install_yay
 #ntfs-3g чтобы ntfs можно было смотреть
 #lxqt-notificationd и libnotify для уведомлений на рабочем столе https://wiki.archlinux.org/title/Desktop_notifications
 #imagemagick для скриншотов
-#jdk20-openj9-bin для билда поиска
 #xarchiver для интеграции с pcmanfm
 #strongswan для l2tp
 #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
@@ -33,8 +32,7 @@ install_yay
 #usbutils - для lsusb
 #rsync - для tilt но и вообще полезно
 #ncdu смотреть использование диска
-#woeusb-ng загрузочные флешки для винды
-#acpilight для управления яркостью
+
 yay -S \
   wpa_supplicant \
   grub \
@@ -54,13 +52,10 @@ yay -S \
   lxqt-notificationd \
   libnotify \
   papirus-icon-theme \
-  leafpad \
   imagemagick \
-  pinta \
   filezilla \
   jdk11-openjdk \
   jdk17-openjdk \
-  jdk20-openj9-bin \
   jdk21-openjdk \
   thunderbird \
   xarchiver \
@@ -115,9 +110,17 @@ yay -S \
   usbutils \
   rsync \
   ncdu \
+
+#отдельно запускаем потому что из AUR под рутом
+#jdk20-openj9-bin для билда поиска
+#woeusb-ng загрузочные флешки для винды
+#acpilight для управления яркостью
+sudo -u "$USER" yay -S \
+  leafpad \
+  pinta \
+  jdk20-openj9-bin \
   woeusb-ng \
   adr-tools \
-  jdk20-openj9-bin \
   postman-bin \
   tilt-bin \
   google-chrome \
@@ -127,7 +130,7 @@ yay -S \
 if [[ $MODE == "LAPTOP" ]];
 then
   #sof-firmware чтобы звук работал
-  yay -S \
+  sudo -u "$USER" yay -S \
     sof-firmware
 fi
 
@@ -135,7 +138,7 @@ if [[ $MODE == "DESKTOP" ]];
 then
   #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
   #rtl88xxau-aircrack-dkms-git Для wifi модуля
-  yay -S \
+  sudo -u "$USER" yay -S \
       k290-fnkeyctl \
       rtl88xxau-aircrack-dkms-git
 fi
