@@ -29,7 +29,7 @@ cp "$ARCH_INSTALL_USB/hhtestersCAnew.crt" "/tmp/"
 trust anchor --store /tmp/hhtestersCAnew.crt
 update-ca-trust
 
-cp "$ARCH_INSTALL_USB/amnezia_configs/*" "/tmp/"
+cp "$ARCH_INSTALL_USB/amnezia_configs/"* "/tmp/"
 
 #локаль, время
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
@@ -41,3 +41,5 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/arch_installation.git" "/home/$USER/arch_installation"
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/obsidian_work.git" "/home/$USER/Obsidian Vault"
+
+sudo -u "$USER" pipx install 'git+ssh://git@forgejo.pyn.ru/hhru/hh-tilt.git@master'

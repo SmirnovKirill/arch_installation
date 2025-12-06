@@ -13,6 +13,8 @@ FONT_NAME_XTERM="DejaVuSansMono" #Xterm нужен моноширинный шр
 USB_NAME="ARCH_201901"
 MODE="LAPTOP" #LAPTOP/DESKTOP
 ARCH_INSTALL_USB="/run/media/$USER/$USB_NAME/arch_installation"
+BACKUP_DEVICE_PATH="/run/media/${USER}/backupssd"
+BACKUP_REPO="$BACKUP_DEVICE_PATH/borg_backup_home"
 
 # Переменные, которые нужно подставлять в конфиги функцией substitute_variables
 VARS_TO_SUBSTITUTE=(
@@ -26,7 +28,9 @@ VARS_TO_SUBSTITUTE=(
   FONT_SIZE
   FONT_NAME
   FONT_NAME_XTERM
-  USB_NAME,
-  MODE,
+  USB_NAME
+  MODE
   ARCH_INSTALL_USB
+  BACKUP_DEVICE_PATH
+  BACKUP_REPO
 )

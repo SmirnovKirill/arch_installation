@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Проверка репозитория borg в разных режимах.
-# Режим передаётся первым аргументом:
-#   quick    – стандартная проверка (по умолчанию)
-#   full     – полная проверка с --verify-data (медленно)
-
-MOUNT="/run/media/kirill/backupssd"
-REPO="$MOUNT/borg_backup_home"
-
-# Функции
+source ~/arch_installation/variables.sh
+source ~/arch_installation/functions.sh
 
 usage() {
   cat <<EOF
@@ -24,8 +17,6 @@ usage() {
   $(basename "$0") full
 EOF
 }
-
-# Основная логика
 
 MODE="${1:-quick}"
 
@@ -52,14 +43,14 @@ esac
 
 log_info "Режим: $MODE"
 log_info "Описание: $DESC"
-log_info "Репозиторий: $REPO"
+log_info "Репозиторий: $BACKUP_REPO"
 echo
 
 start_ts="$(date +'%Y-%m-%d %H:%M:%S')"
 log_info "Старт проверки: $start_ts"
 echo
 
-if borg check "${CHECK_ARGS[@]}" "$REPO" --progress; then
+if borg check "${CHECK_ARGS[@]}" "$BACKUP_REPO" --progress; then
   rc=0
 else
   rc=$?

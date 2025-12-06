@@ -29,8 +29,8 @@ function log_error() { echo -e "${color_red}[ERR]${color_reset} $*"; }
 
 function install_yay() {
   sudo -u "$USER" mkdir "/home/$USER/software/AUR" -p
-  sudo -u $USER git clone https://aur.archlinux.org/yay.git "/home/$USER/software/AUR/yay"
+  sudo -u "$USER" git clone https://aur.archlinux.org/yay.git "/home/$USER/software/AUR/yay"
   cd "/home/$USER/software/AUR/yay"
-  sudo -u $USER makepkg -si
-  cd /home/$USER
+  sudo -u "$USER" makepkg -si
+  cd "/home/$USER"
 }

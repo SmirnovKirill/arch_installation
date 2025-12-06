@@ -7,8 +7,8 @@ source "$CURRENT_DIRECTORY/variables.sh"
 source "$CURRENT_DIRECTORY/functions.sh"
 source "$CURRENT_DIRECTORY/config_sync.sh"
 
-useradd -m $USER
-passwd $USER
+useradd -m "$USER"
+passwd "$USER"
 sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
@@ -99,6 +99,8 @@ yay -S \
   kubectl \
   python \
   python-pip \
+  python-pipx \
+  python-poetry \
   skaffold \
   telegram-desktop \
   dconf \
@@ -185,7 +187,7 @@ sudo -u "$USER" mkdir "/home/$USER/.config/lxpanel/default/panels" -p
 sudo -u "$USER" mkdir "/home/$USER/.config/filezilla" -p
 sudo -u "$USER" mkdir "/home/$USER/.m2" -p
 sudo -u "$USER" mkdir "/home/$USER/Desktop" -p
-config_sync $CURRENT_DIRECTORY
+config_sync "$CURRENT_DIRECTORY"
 
 sudo -u "$USER" cp "$CURRENT_DIRECTORY/configs/.bash_history" "/home/$USER/.bash_history"
 
