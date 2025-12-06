@@ -15,6 +15,7 @@ passwd -l root #отключаем возможность логиниться �
 
 install_yay
 
+#--needed для повторных запусков
 #efibootmgr для граба
 #xorg-xinit для ручной инициализации иксов
 #xorg-xinput для отключения тачпада
@@ -32,8 +33,7 @@ install_yay
 #usbutils - для lsusb
 #rsync - для tilt но и вообще полезно
 #ncdu смотреть использование диска
-
-yay -S \
+yay -S --needed \
   wpa_supplicant \
   grub \
   efibootmgr \
@@ -79,7 +79,6 @@ yay -S \
   pavucontrol \
   pulseaudio-bluetooth \
   bluez-utils \
-  physlock \
   mattermost-desktop \
   avahi \
   nss-mdns \
@@ -110,13 +109,15 @@ yay -S \
   usbutils \
   rsync \
   ncdu \
+  mousepad \
+  slock
 
+#--needed для повторных запусков
 #отдельно запускаем потому что из AUR под рутом
 #jdk20-openj9-bin для билда поиска
 #woeusb-ng загрузочные флешки для винды
 #acpilight для управления яркостью
 sudo -u "$USER" yay -S \
-  leafpad \
   pinta \
   jdk20-openj9-bin \
   woeusb-ng \
