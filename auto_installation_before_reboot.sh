@@ -117,7 +117,7 @@ yay -S --needed \
 #jdk20-openj9-bin для билда поиска
 #woeusb-ng загрузочные флешки для винды
 #acpilight для управления яркостью
-sudo -u "$USER" yay -S \
+sudo -u "$USER" yay -S --needed \
   pinta \
   jdk20-openj9-bin \
   woeusb-ng \
@@ -131,7 +131,7 @@ sudo -u "$USER" yay -S \
 if [[ $MODE == "LAPTOP" ]];
 then
   #sof-firmware чтобы звук работал
-  sudo -u "$USER" yay -S \
+  sudo -u "$USER" yay -S --needed \
     sof-firmware
 fi
 
@@ -139,7 +139,7 @@ if [[ $MODE == "DESKTOP" ]];
 then
   #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
   #rtl88xxau-aircrack-dkms-git Для wifi модуля
-  sudo -u "$USER" yay -S \
+  sudo -u "$USER" yay -S --needed \
       k290-fnkeyctl \
       rtl88xxau-aircrack-dkms-git
 fi
