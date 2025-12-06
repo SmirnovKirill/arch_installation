@@ -15,22 +15,11 @@
 1.13 mkdir /mnt/efi
 1.14 mount /dev/sda1 /mnt/efi
 
-2.1 ip link, найти wifi
-2.2 ip link set wlp2s0 (заменить на нужное) up
-2.3 iw dev wlp2s0 (заменить на нужное) scan	
-2.4 wpa_passphrase MYSSID passphrase > /etc/wpa_supplicant/example.conf
-альтернатива, со сложной аутентификацией:
-network={
-    ssid="YourSSID"
-    key_mgmt=WPA-EAP
-    eap=PEAP
-    identity="your-username"
-    password="your-password"
-    phase1="peaplabel=0"
-    phase2="auth=MSCHAPV2"
-}
-2.5 wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/example.conf
-2.6 dhcpcd wlp2s0 (заменить на нужное)
+2.1 iwctl
+2.2 device list
+2.3 station wlan0 scan
+2.4 station wlan0 get-networks
+2.5 station wlan0 connect "Имя_сети"
 
 3 pacstrap /mnt base linux linux-firmware git vim
 
