@@ -33,7 +33,7 @@ install_yay
 #usbutils - для lsusb
 #rsync - для tilt но и вообще полезно
 #ncdu смотреть использование диска
-yay -S --needed \
+pacman -S --needed \
   wpa_supplicant \
   grub \
   efibootmgr \
@@ -131,7 +131,7 @@ sudo -u "$USER" yay -S --needed \
 if [[ $MODE == "LAPTOP" ]];
 then
   #sof-firmware чтобы звук работал
-  sudo -u "$USER" yay -S --needed \
+  pacman -S --needed \
     sof-firmware
 fi
 

@@ -40,7 +40,8 @@ ffmpeg -i ~/in.mp3 -map 0:a -acodec copy -map_metadata -1 ~/out.mp3
 /opt/cisco/anyconnect/bin/vpnui &
 sudo resolvectl status
 sudo systemctl restart systemd-resolved
-sudo yay -S archlinux-keyring
+sudo pacman -S archlinux-keyring
 sudo yay -Syu
+sudo pacman -Syu
 ~/.local/bin/hhtilt java -a negotiations -m server -t ts62.pyn.ru -d 4205 -f
 ncdu
