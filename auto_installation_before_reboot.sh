@@ -12,7 +12,6 @@ passwd "$USER"
 sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
-gpasswd -a "$USER" docker #иначе контейнер с постгресом в тестах не поднимался
 
 install_yay
 
@@ -40,7 +39,6 @@ yay -S \
   wpa_supplicant \
   grub \
   efibootmgr \
-  base-devel \
   vim \
   xorg-server \
   xorg-xinit \
@@ -163,6 +161,8 @@ EndOfText
 fi
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+gpasswd -a "$USER" docker #иначе контейнер с постгресом в тестах не поднимался
 
 sudo -u "$USER" git config --global user.email "$GIT_USER_EMAIL_WORK"
 sudo -u "$USER" git config --global user.name "$GIT_USER_NAME"

@@ -21,7 +21,7 @@
 2.4 station wlan0 get-networks
 2.5 station wlan0 connect "Имя_сети"
 
-3 pacstrap /mnt base linux linux-firmware git vim
+3 pacstrap /mnt base linux linux-firmware git vim base-devel
 
 4 genfstab -U /mnt >> /mnt/etc/fstab
 
