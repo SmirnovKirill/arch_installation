@@ -34,7 +34,10 @@ Plugin {
         Button {
             id=/home/$USER/Desktop/chrome.desktop
         }
-         Button {
+        Button {
+            id=/home/$USER/Desktop/firefox.desktop
+        }
+        Button {
             id=/home/$USER/Desktop/leafpad.desktop
         }
         Button {
@@ -63,6 +66,9 @@ Plugin {
         }
         Button {
             id=/home/$USER/Desktop/obsidian.desktop
+        }
+        Button {
+            id=/home/$USER/Desktop/postman.desktop
         }
     }
 }

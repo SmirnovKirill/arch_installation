@@ -1,24 +1,36 @@
-#!/bin/sh
-
-set -ex
+#!/usr/bin/env bash
 
 function substitute_variables {
-  sudo -u $USER sed -i "s/\$USER/$USER/g" $1
-  sudo -u $USER sed -i "s/\$REPOSITORY_URL/${REPOSITORY_URL//\//\\\/}/g" $1
-  sudo -u $USER sed -i "s/\$WINDOWS_INSTALLED/$WINDOWS_INSTALLED/g" $1
-  sudo -u $USER sed -i "s/\$WINDOWS_GRUB_ENTRY_TITLE/$WINDOWS_GRUB_ENTRY_TITLE/g" $1
-  sudo -u $USER sed -i "s/\$GIT_USER_EMAIL_WORK/$GIT_USER_EMAIL_WORK/g" $1
-  sudo -u $USER sed -i "s/\$GIT_USER_EMAIL_HOME/$GIT_USER_EMAIL_HOME/g" $1
-  sudo -u $USER sed -i "s/\$GIT_USER_NAME/$GIT_USER_NAME/g" $1
-  sudo -u $USER sed -i "s/\$FONT_SIZE/$FONT_SIZE/g" $1
-  sudo -u $USER sed -i "s/\$FONT_NAME/$FONT_NAME/g" $1
-  sudo -u $USER sed -i "s/\$FONT_NAME_XTERM/$FONT_NAME_XTERM/g" $1
-  sudo -u $USER sed -i "s/\$USB_NAME/$USB_NAME/g" $1
+  local expressions=()
+
+  # VARS_TO_SUBSTITUTE объявлен в variables.sh
+  for var in "${VARS_TO_SUBSTITUTE[@]}"; do
+    local value="${!var}"
+
+    # Экранируем спецсимволы для sed: \, &, |
+    value=${value//\\/\\\\}
+    value=${value//&/\\&}
+    value=${value//|/\\|}
+
+    expressions+=(-e "s|\$$var|$value|g")
+  done
+
+  sudo -u "$USER" sed -i "${expressions[@]}" "$1"
 }
 
-function install_from_aur {
-  sudo -u $USER git clone $1 $2
-  cd $2
+color_green="\033[1;32m"
+color_red="\033[1;31m"
+color_blue="\033[1;34m"
+color_reset="\033[0m"
+
+function log_info()  { echo -e "${color_blue}[*]${color_reset} $*"; }
+function log_ok()    { echo -e "${color_green}[OK]${color_reset} $*"; }
+function log_error() { echo -e "${color_red}[ERR]${color_reset} $*"; }
+
+function install_yay() {
+  sudo -u "$USER" mkdir "/home/$USER/software/AUR" -p
+  sudo -u $USER git clone https://aur.archlinux.org/yay.git "/home/$USER/software/AUR/yay"
+  cd "/home/$USER/software/AUR/yay"
   sudo -u $USER makepkg -si
   cd /home/$USER
 }

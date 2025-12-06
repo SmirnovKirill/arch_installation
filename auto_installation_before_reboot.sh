@@ -1,11 +1,20 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-set -ex
+set -euxo pipefail
 
 CURRENT_DIRECTORY="$(dirname "$0")"
-source "$CURRENT_DIRECTORY/installation_variables.sh"
+source "$CURRENT_DIRECTORY/variables.sh"
 source "$CURRENT_DIRECTORY/functions.sh"
 source "$CURRENT_DIRECTORY/config_sync.sh"
+
+useradd -m $USER
+passwd $USER
+sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
+passwd #пароль для рута
+passwd -l root #отключаем возможность логиниться рутом
+gpasswd -a "$USER" docker #иначе контейнер с постгресом в тестах не поднимался
+
+install_yay
 
 #efibootmgr для граба
 #xorg-xinit для ручной инициализации иксов
@@ -14,12 +23,20 @@ source "$CURRENT_DIRECTORY/config_sync.sh"
 #ntfs-3g чтобы ntfs можно было смотреть
 #lxqt-notificationd и libnotify для уведомлений на рабочем столе https://wiki.archlinux.org/title/Desktop_notifications
 #imagemagick для скриншотов
+#jdk20-openj9-bin для билда поиска
 #xarchiver для интеграции с pcmanfm
 #strongswan для l2tp
 #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
 #nss-mdns для печати (с avahi)
 #doncf для того чтобы сразу конфиги workrave прописать
-pacman -S \
+#libsecret нужен для кейринга
+#inetutils всякие ping, traceroute, telnet и тд
+#usbutils - для lsusb
+#rsync - для tilt но и вообще полезно
+#ncdu смотреть использование диска
+#woeusb-ng загрузочные флешки для винды
+#acpilight для управления яркостью
+yay -S \
   wpa_supplicant \
   grub \
   efibootmgr \
@@ -45,12 +62,14 @@ pacman -S \
   filezilla \
   jdk11-openjdk \
   jdk17-openjdk \
+  jdk20-openj9-bin \
+  jdk21-openjdk \
   thunderbird \
   xarchiver \
   zip \
   unzip \
   unrar \
-  p7zip \
+  7zip \
   networkmanager \
   network-manager-applet \
   networkmanager-openvpn \
@@ -83,13 +102,42 @@ pacman -S \
   skaffold \
   telegram-desktop \
   dconf \
-  keepass
+  htop \
+  gnome-keyring \
+  libsecret \
+  android-file-transfer \
+  borg \
+  firefox \
+  inetutils \
+  obsidian \
+  noto-fonts-emoji \
+  wget \
+  usbutils \
+  rsync \
+  ncdu \
+  woeusb-ng \
+  adr-tools \
+  jdk20-openj9-bin \
+  postman-bin \
+  tilt-bin \
+  google-chrome \
+  zoom \
+  acpilight
 
 if [[ $MODE == "LAPTOP" ]];
 then
   #sof-firmware чтобы звук работал
-  pacman -S \
+  yay -S \
     sof-firmware
+fi
+
+if [[ $MODE == "DESKTOP" ]];
+then
+  #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
+  #rtl88xxau-aircrack-dkms-git Для wifi модуля
+  yay -S \
+      k290-fnkeyctl \
+      rtl88xxau-aircrack-dkms-git
 fi
     
 #загрузчик
@@ -114,23 +162,15 @@ fi
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-useradd -m $USER
-passwd $USER
-sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
-passwd #пароль для рута
-passwd -l root #отключаем возможность логиниться рутом
-gpasswd -a $USER docker #иначе контейнер с постгресом в тестах не поднимался
-
-sudo -u $USER git clone $REPOSITORY_URL /home/$USER/arch_installation #выкачать заново, уже в домашнюю директорию
-sudo -u $USER git config --global user.email $GIT_USER_EMAIL_WORK
-sudo -u $USER git config --global user.name $GIT_USER_NAME
+sudo -u "$USER" git config --global user.email "$GIT_USER_EMAIL_WORK"
+sudo -u "$USER" git config --global user.name "$GIT_USER_NAME"
 
 echo "EDITOR=vim" >> /etc/environment
 echo "SUDO_EDITOR=vim" >> /etc/environment
 echo "TARGET_TEST_STAND=ts62.pyn.ru" >> /etc/environment
 echo "TEST_STAND_SSH_IDENTITY=file:~/.ssh/pkey.hh" >> /etc/environment
 
-archlinux-java set java-17-openjdk
+archlinux-java set java-21-openjdk
 
 if [[ $MODE == "LAPTOP" ]]; 
 then
@@ -138,39 +178,22 @@ then
   echo "blacklist psmouse" >> /etc/modprobe.d/blacklist.conf #отключение модуля с тачпадом чтобы не сыпались ошибки что устройство не найдено
 fi
 
-sudo -u $USER mkdir "/home/$USER/.config" -p
-sudo -u $USER mkdir "/home/$USER/.config/pcmanfm/default" -p
-sudo -u $USER mkdir "/home/$USER/.config/libfm" -p
-sudo -u $USER mkdir "/home/$USER/.config/lxpanel/default/panels" -p
-sudo -u $USER mkdir "/home/$USER/.config/filezilla" -p
-sudo -u $USER mkdir "/home/$USER/.m2" -p
-sudo -u $USER mkdir "/home/$USER/Desktop" -p
+sudo -u "$USER" mkdir "/home/$USER/.config" -p
+sudo -u "$USER" mkdir "/home/$USER/.config/pcmanfm/default" -p
+sudo -u "$USER" mkdir "/home/$USER/.config/libfm" -p
+sudo -u "$USER" mkdir "/home/$USER/.config/lxpanel/default/panels" -p
+sudo -u "$USER" mkdir "/home/$USER/.config/filezilla" -p
+sudo -u "$USER" mkdir "/home/$USER/.m2" -p
+sudo -u "$USER" mkdir "/home/$USER/Desktop" -p
 config_sync $CURRENT_DIRECTORY
 
-sudo -u $USER cp "$CURRENT_DIRECTORY/configs/.bash_history" "/home/$USER/.bash_history"
+sudo -u "$USER" cp "$CURRENT_DIRECTORY/configs/.bash_history" "/home/$USER/.bash_history"
 
-sudo -u $USER cp "$CURRENT_DIRECTORY/configs/filezilla/sitemanager.xml" "/home/$USER/.config/filezilla/sitemanager.xml"
+sudo -u "$USER" cp "$CURRENT_DIRECTORY/configs/filezilla/sitemanager.xml" "/home/$USER/.config/filezilla/sitemanager.xml"
 substitute_variables "/home/$USER/.config/filezilla/sitemanager.xml"
 
 cp "$CURRENT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlight.rules"
 
-sudo -u $USER mkdir "/home/$USER/software/AUR" -p
-
-install_from_aur https://aur.archlinux.org/acpilight.git /home/$USER/software/AUR/acpilight #управление яркостью
-install_from_aur https://aur.archlinux.org/google-chrome.git /home/$USER/software/AUR/chrome
-install_from_aur https://aur.archlinux.org/zoom.git /home/$USER/software/AUR/zoom
-
-if [[ $MODE == "DESKTOP" ]];
-then
-  #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
-  install_from_aur https://aur.archlinux.org/k290-fnkeyctl.git /home/$USER/software/AUR/k290-fnkeyctl
-
-  #Для wifi модуля
-  install_from_aur https://aur.archlinux.org/rtl88xxau-aircrack-dkms-git.git /home/$USER/software/AUR/rtl88xxau-aircrack-dkms-git
-fi
-
-install_from_aur https://aur.archlinux.org/openambit.git /home/$USER/software/AUR/openambit
-cp /home/$USER/software/AUR/openambit/src/openambit/src/libambit/libambit.rules /etc/udev/rules.d/
 udevadm control --reload-rules
 udevadm trigger #код выше чтобы часы распознавались при подключении
 

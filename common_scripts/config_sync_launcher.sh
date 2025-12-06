@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-source ~/arch_installation/installation_variables.sh
+set -euxo pipefail
+
+source ~/arch_installation/variables.sh
 source ~/arch_installation/functions.sh
 source ~/arch_installation/config_sync.sh
 
