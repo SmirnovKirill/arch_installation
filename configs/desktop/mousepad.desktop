@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Leafpad
-Exec=leafpad %f
-Icon=leafpad
+Name=Mousepad
+Exec=mousepad %F
+Icon=mousepad
 Type=Application

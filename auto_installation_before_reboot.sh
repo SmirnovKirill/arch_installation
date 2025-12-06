@@ -126,7 +126,8 @@ sudo -u "$USER" yay -S --needed \
   tilt-bin \
   google-chrome \
   zoom \
-  acpilight
+  acpilight \
+  amneziavpn-bin
 
 if [[ $MODE == "LAPTOP" ]];
 then

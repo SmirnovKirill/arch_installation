@@ -11,7 +11,9 @@ systemctl enable bluetooth --now
 systemctl enable docker --now
 systemctl enable cups --now
 
-sudo -u "$USER" cat "$CURRENT_DIRECTORY/configs/workrave.ini" | dconf load /
+sudo -u "$USER" bash -c '
+  dconf load / < "$CURRENT_DIRECTORY/configs/workrave.ini"
+'
 
 sudo -u "$USER" mkdir "/home/$USER/.ssh" -p
 sudo -u "$USER" cp "$ARCH_INSTALL_USB/ssh/"* "/home/$USER/.ssh/"
@@ -37,8 +39,14 @@ timedatectl set-ntp true
 sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf 
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+echo "Нажми любую клавишу после того как подключишь вайфай"
+read -n1 -s
 
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/obsidian_work.git" "/home/$USER/Obsidian Vault"
+
+echo "Нажми любую клавишу после того как подключишь vpn"
+read -n1 -s
 
 sudo -u "$USER" pipx install 'git+ssh://git@forgejo.pyn.ru/hhru/hh-tilt.git@master'

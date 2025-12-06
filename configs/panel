@@ -38,7 +38,7 @@ Plugin {
             id=/home/$USER/Desktop/firefox.desktop
         }
         Button {
-            id=/home/$USER/Desktop/leafpad.desktop
+            id=/home/$USER/Desktop/mousepad.desktop
         }
         Button {
             id=/home/$USER/Desktop/thunderbird.desktop
