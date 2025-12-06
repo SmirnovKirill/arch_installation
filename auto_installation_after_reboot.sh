@@ -11,9 +11,7 @@ systemctl enable bluetooth --now
 systemctl enable docker --now
 systemctl enable cups --now
 
-sudo -u "$USER" bash -c '
-  dconf load / < "$CURRENT_DIRECTORY/configs/workrave.ini"
-'
+sudo -u "$USER" bash -c "dconf load / < \"$CURRENT_DIRECTORY/configs/workrave.ini\""
 
 sudo -u "$USER" mkdir "/home/$USER/.ssh" -p
 sudo -u "$USER" cp "$ARCH_INSTALL_USB/ssh/"* "/home/$USER/.ssh/"
