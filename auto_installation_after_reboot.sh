@@ -10,6 +10,7 @@ systemctl enable avahi-daemon --now
 systemctl enable bluetooth --now
 systemctl enable docker --now
 systemctl enable cups --now
+systemctl enable vpnagentd.service --now #для cisco anyconnect, написано в AUR что надо так сделать
 
 sudo -u "$USER" bash -c "dconf load / < \"$CURRENT_DIRECTORY/configs/workrave.ini\""
 
@@ -48,3 +49,5 @@ echo "Нажми любую клавишу после того как подкл
 read -n1 -s
 
 sudo -u "$USER" pipx install 'git+ssh://git@forgejo.pyn.ru/hhru/hh-tilt.git@master'
+sudo -u "$USER" docker login registry.pyn.ru
+sudo -u "$USER" mkdir -p "/home/$USER/programming/work"

@@ -28,10 +28,11 @@ sh -c 'xrandr --output HDMI-2 --mode 2560x1080 --rate 60.00 --output eDP-1 --off
 git clone git@forgejo.pyn.ru:hhru/hh.ru
 setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 scp k.smirnov@log2:/tmp/file /tmp/
-venv/bin/python -m pip install -r requirements.txt
-python3.13 -m venv venv
+python -m venv venv
 source venv/bin/activate
+python -m pip install -r requirements.txt
 poetry install
+poetry run pytest
 pys format .
 pcmanfm .
 ffmpeg -i ~/in.mkv -map 0:v -map 0:a -map 0:s -vcodec copy -acodec aac -b:a 384k -scodec copy ~/out.mkv

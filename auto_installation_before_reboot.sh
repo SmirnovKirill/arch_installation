@@ -99,7 +99,7 @@ pacman -S --needed \
   htop \
   gnome-keyring \
   libsecret \
-  android-file-transfer \
+  gvfs-mtp \
   borg \
   firefox \
   inetutils \
@@ -127,7 +127,9 @@ sudo -u "$USER" yay -S --needed \
   google-chrome \
   zoom \
   acpilight \
-  amneziavpn-bin
+  amneziavpn-bin \
+  cisco-secure-client \
+  downgrade
 
 if [[ $MODE == "LAPTOP" ]];
 then
