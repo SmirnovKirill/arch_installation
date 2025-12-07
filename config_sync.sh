@@ -36,4 +36,11 @@ function config_sync {
   substitute_variables "/home/$USER/.vimrc"
 
   sudo -u "$USER" cp "$1/configs/.xbindkeysrc" "/home/$USER/.xbindkeysrc"
+
+  if [ "$EUID" -ne 0 ] && [ -z "${SUDO_USER-}" ]; then
+    log_info "Запущено как обычный пользователь, можно делать dconf"
+    dconf load / < "$CURRENT_DIRECTORY/configs/workrave.ini"
+  else
+    log_info "dconf пропускаем: скрипт под sudo или от root"
+  fi
 }
