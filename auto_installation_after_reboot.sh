@@ -24,8 +24,8 @@ chmod +x "/home/$USER/software/idea/bin/idea.sh"
 
 sudo -u "$USER" cp "$ARCH_INSTALL_USB/maven/settings.xml" "/home/$USER/.m2/settings.xml"
 
-cp "$ARCH_INSTALL_USB/hhtestersCAnew.crt" "/tmp/"
-trust anchor --store /tmp/hhtestersCAnew.crt
+wget https://crt.pyn.ru/hhtestersCA2025.crt -O /tmp/crt.crt
+trust anchor --store /tmp/crt.crt
 update-ca-trust
 
 cp "$ARCH_INSTALL_USB/amnezia_configs/"* "/tmp/"
