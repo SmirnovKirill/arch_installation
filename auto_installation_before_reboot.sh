@@ -107,6 +107,15 @@ function install_pacman_dependencies() {
         slock
 }
 
+function add_user_and_groups() {
+  useradd -m "$USER"
+  passwd "$USER"
+  sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
+  passwd #пароль для рута
+  passwd -l root #отключаем возможность логиниться рутом
+  gpasswd -a "$USER" docker #иначе контейнер с постгресом в тестах не поднимался
+}
+
 function install_aur_dependencies() {
     #--needed для повторных запусков
     #отдельно запускаем потому что из AUR под рутом
@@ -146,6 +155,14 @@ function install_optional_dependencies() {
     fi
 }
 
+function set_environment_variables() {
+  echo "EDITOR=vim" >> /etc/environment
+  echo "SUDO_EDITOR=vim" >> /etc/environment
+  echo "TARGET_TEST_STAND=ts62.pyn.ru" >> /etc/environment
+  echo "TEST_STAND_SSH_IDENTITY=file:~/.ssh/pkey.hh" >> /etc/environment
+
+}
+
 function install_loader() {
   #загрузчик
   grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
@@ -170,27 +187,17 @@ EndOfText
   grub-mkconfig -o /boot/grub/grub.cfg
 }
 
-useradd -m "$USER"
-passwd "$USER"
-sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
-passwd #пароль для рута
-passwd -l root #отключаем возможность логиниться рутом
-
 install_pacman_dependencies
+add_user_and_groups #надо делать после установки базовой (где будет установлен докер и sudo) и до AUR
 install_yay
 install_aur_dependencies
 install_optional_dependencies
 install_loader
 
-gpasswd -a "$USER" docker #иначе контейнер с постгресом в тестах не поднимался
-
 sudo -u "$USER" git config --global user.email "$GIT_USER_EMAIL_WORK"
 sudo -u "$USER" git config --global user.name "$GIT_USER_NAME"
 
-echo "EDITOR=vim" >> /etc/environment
-echo "SUDO_EDITOR=vim" >> /etc/environment
-echo "TARGET_TEST_STAND=ts62.pyn.ru" >> /etc/environment
-echo "TEST_STAND_SSH_IDENTITY=file:~/.ssh/pkey.hh" >> /etc/environment
+set_environment_variables
 
 archlinux-java set java-21-openjdk
 
