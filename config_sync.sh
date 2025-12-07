@@ -19,8 +19,13 @@ function config_sync {
   sudo -u "$USER" cp "$1/configs/.Xresources" "/home/$USER/.Xresources"
   substitute_variables "/home/$USER/.Xresources"
 
-  sudo -u "$USER" cp "$1/configs/.gtkrc-2.0" "/home/$USER/.gtkrc-2.0"
-  substitute_variables "/home/$USER/.gtkrc-2.0"
+  sudo -u "$USER" mkdir -p "/home/$USER/.config/gtk-3.0" "/home/$USER/.config/gtk-4.0"
+
+  sudo -u "$USER" cp "$1/configs/gtk_settings.ini" "/home/$USER/config/gtk-3.0/settings.ini"
+  substitute_variables "/home/$USER/config/gtk-3.0/settings.ini"
+
+   sudo -u "$USER" cp "$1/configs/gtk_settings.ini" "/home/$USER/config/gtk-4.0/settings.ini"
+  substitute_variables "/home/$USER/config/gtk-4.0/settings.ini"
 
   sudo -u "$USER" cp "$1/configs/libfm.conf" "/home/$USER/.config/libfm/libfm.conf"
   substitute_variables "/home/$USER/.config/libfm/libfm.conf"
