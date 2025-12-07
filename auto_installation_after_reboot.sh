@@ -4,6 +4,7 @@ set -euxo pipefail
 
 CURRENT_DIRECTORY="$(dirname "$0")"
 source "$CURRENT_DIRECTORY/variables.sh"
+source "$CURRENT_DIRECTORY/functions.sh"
 
 function enable_services() {
   systemctl enable NetworkManager --now
