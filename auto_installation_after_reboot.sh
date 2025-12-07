@@ -93,6 +93,10 @@ handle_locale_and_time
 
 hostnamectl set-hostname archlinux #Чтобы anyconnect например не скидывал
 
+cp "$ARCH_INSTALL_USB/network/"* "/etc/NetworkManager/system-connections/"
+chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
+nmcli connection reload
+
 log_info "Нажми любую клавишу после того как подключишь вайфай"
 read -n1 -s
 
