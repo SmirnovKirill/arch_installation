@@ -53,6 +53,8 @@ cp "$ARCH_INSTALL_USB/amnezia_configs/"* "/tmp/"
 
 handle_locale_and_time
 
+hostnamectl set-hostname archlinux #Чтобы anyconnect например не скидывал
+
 log_info "Нажми любую клавишу после того как подключишь вайфай"
 read -n1 -s
 
