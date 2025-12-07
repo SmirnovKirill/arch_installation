@@ -7,104 +7,107 @@ source "$CURRENT_DIRECTORY/variables.sh"
 source "$CURRENT_DIRECTORY/functions.sh"
 source "$CURRENT_DIRECTORY/config_sync.sh"
 
-function install_dependencies() {
-    #--needed для повторных запусков
-    #efibootmgr для граба
-    #xorg-xinit для ручной инициализации иксов
-    #xorg-xinput для отключения тачпада
-    #udiskie для автомонтирования
-    #ntfs-3g чтобы ntfs можно было смотреть
-    #lxqt-notificationd и libnotify для уведомлений на рабочем столе https://wiki.archlinux.org/title/Desktop_notifications
-    #imagemagick для скриншотов
-    #xarchiver для интеграции с pcmanfm
-    #strongswan для l2tp
-    #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
-    #nss-mdns для печати (с avahi)
-    #doncf для того чтобы сразу конфиги workrave прописать
-    #libsecret нужен для кейринга
-    #inetutils всякие ping, traceroute, telnet и тд
-    #usbutils - для lsusb
-    #rsync - для tilt но и вообще полезно
-    #ncdu смотреть использование диска
-    pacman -S --needed \
-      wpa_supplicant \
-      grub \
-      efibootmgr \
-      vim \
-      xorg-server \
-      xorg-xinit \
-      xorg-xinput \
-      openbox \
-      xbindkeys \
-      ttf-dejavu \
-      xterm \
-      pcmanfm \
-      udiskie \
-      ntfs-3g \
-      lxpanel \
-      lxqt-notificationd \
-      libnotify \
-      papirus-icon-theme \
-      imagemagick \
-      filezilla \
-      jdk11-openjdk \
-      jdk17-openjdk \
-      jdk21-openjdk \
-      thunderbird \
-      xarchiver \
-      zip \
-      unzip \
-      unrar \
-      7zip \
-      networkmanager \
-      network-manager-applet \
-      networkmanager-openvpn \
-      networkmanager-l2tp \
-      strongswan \
-      openssh \
-      transmission-gtk \
-      vlc \
-      evince \
-      maven \
-      libreoffice-still \
-      workrave \
-      pulseaudio-alsa \
-      pavucontrol \
-      pulseaudio-bluetooth \
-      bluez-utils \
-      mattermost-desktop \
-      avahi \
-      nss-mdns \
-      cups \
-      sane \
-      simple-scan \
-      ffmpeg \
-      gthumb \
-      docker \
-      kubectl \
-      python \
-      python-pip \
-      python-pipx \
-      python-poetry \
-      skaffold \
-      telegram-desktop \
-      dconf \
-      htop \
-      gnome-keyring \
-      libsecret \
-      gvfs-mtp \
-      borg \
-      firefox \
-      inetutils \
-      obsidian \
-      noto-fonts-emoji \
-      wget \
-      usbutils \
-      rsync \
-      ncdu \
-      mousepad \
-      slock
+function install_pacman_dependencies() {
+      #--needed для повторных запусков
+      #efibootmgr для граба
+      #xorg-xinit для ручной инициализации иксов
+      #xorg-xinput для отключения тачпада
+      #udiskie для автомонтирования
+      #ntfs-3g чтобы ntfs можно было смотреть
+      #lxqt-notificationd и libnotify для уведомлений на рабочем столе https://wiki.archlinux.org/title/Desktop_notifications
+      #imagemagick для скриншотов
+      #xarchiver для интеграции с pcmanfm
+      #strongswan для l2tp
+      #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
+      #nss-mdns для печати (с avahi)
+      #doncf для того чтобы сразу конфиги workrave прописать
+      #libsecret нужен для кейринга
+      #inetutils всякие ping, traceroute, telnet и тд
+      #usbutils - для lsusb
+      #rsync - для tilt но и вообще полезно
+      #ncdu смотреть использование диска
+      pacman -S --needed \
+        base-devel \
+        wpa_supplicant \
+        grub \
+        efibootmgr \
+        vim \
+        xorg-server \
+        xorg-xinit \
+        xorg-xinput \
+        openbox \
+        xbindkeys \
+        ttf-dejavu \
+        xterm \
+        pcmanfm \
+        udiskie \
+        ntfs-3g \
+        lxpanel \
+        lxqt-notificationd \
+        libnotify \
+        papirus-icon-theme \
+        imagemagick \
+        filezilla \
+        jdk11-openjdk \
+        jdk17-openjdk \
+        jdk21-openjdk \
+        thunderbird \
+        xarchiver \
+        zip \
+        unzip \
+        unrar \
+        7zip \
+        networkmanager \
+        network-manager-applet \
+        networkmanager-openvpn \
+        networkmanager-l2tp \
+        strongswan \
+        openssh \
+        transmission-gtk \
+        vlc \
+        evince \
+        maven \
+        libreoffice-still \
+        workrave \
+        pulseaudio-alsa \
+        pavucontrol \
+        pulseaudio-bluetooth \
+        bluez-utils \
+        mattermost-desktop \
+        avahi \
+        nss-mdns \
+        cups \
+        sane \
+        simple-scan \
+        ffmpeg \
+        gthumb \
+        docker \
+        kubectl \
+        python \
+        python-pip \
+        python-pipx \
+        python-poetry \
+        skaffold \
+        telegram-desktop \
+        dconf \
+        htop \
+        gnome-keyring \
+        libsecret \
+        gvfs-mtp \
+        borg \
+        firefox \
+        inetutils \
+        obsidian \
+        noto-fonts-emoji \
+        wget \
+        usbutils \
+        rsync \
+        ncdu \
+        mousepad \
+        slock
+}
 
+function install_aur_dependencies() {
     #--needed для повторных запусков
     #отдельно запускаем потому что из AUR под рутом
     #jdk20-openj9-bin для билда поиска
@@ -123,7 +126,9 @@ function install_dependencies() {
       amneziavpn-bin \
       cisco-secure-client \
       downgrade
+}
 
+function install_optional_dependencies() {
     if [[ $MODE == "LAPTOP" ]];
     then
       #sof-firmware чтобы звук работал
@@ -171,8 +176,10 @@ sed -i "/root ALL=(ALL:ALL) ALL/a $USER ALL=(ALL:ALL) ALL" /etc/sudoers
 passwd #пароль для рута
 passwd -l root #отключаем возможность логиниться рутом
 
+install_pacman_dependencies
 install_yay
-install_dependencies
+install_aur_dependencies
+install_optional_dependencies
 install_loader
 
 gpasswd -a "$USER" docker #иначе контейнер с постгресом в тестах не поднимался
