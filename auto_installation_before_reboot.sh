@@ -228,7 +228,7 @@ udevadm trigger #код выше чтобы часы распознавалис�
 sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf #чтобы принтер искался
 sed -i 's/Listen \/run\/cups\/cups.sock/#Listen \/run\/cups\/cups.sock/g' /etc/cups/cupsd.conf #чтобы не было бесконечного ожидания принтера при печати
 
-sed -i '/^auth[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a auth       optional   pam_gnome_keyring.so' /etc/pam.d/login
-sed -i '/^session[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a session    optional   pam_gnome_keyring.so auto_start' /etc/pam.d/login
+sed -i '/^auth[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a auth       optional     pam_gnome_keyring.so' /etc/pam.d/login
+sed -i '/^session[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a session    optional     pam_gnome_keyring.so auto_start' /etc/pam.d/login
 
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/arch_installation.git" "/home/$USER/arch_installation"
