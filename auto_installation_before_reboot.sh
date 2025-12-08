@@ -26,7 +26,7 @@ function install_pacman_dependencies() {
       #usbutils - для lsusb
       #rsync - для tilt но и вообще полезно
       #ncdu смотреть использование диска
-      pacman -S --needed \
+      pacman -S --needed --noconfirm \
         base-devel \
         wpa_supplicant \
         grub \
@@ -122,7 +122,7 @@ function install_aur_dependencies() {
     #jdk20-openj9-bin для билда поиска
     #woeusb-ng загрузочные флешки для винды
     #acpilight для управления яркостью
-    sudo -u "$USER" yay -S --needed \
+    sudo -u "$USER" yay -S --needed --noconfirm \
       pinta \
       jdk20-openj9-bin \
       woeusb-ng \
@@ -141,7 +141,7 @@ function install_optional_dependencies() {
     if [[ $MODE == "LAPTOP" ]];
     then
       #sof-firmware чтобы звук работал
-      pacman -S --needed \
+      pacman -S --needed --noconfirm \
         sof-firmware
     fi
 
@@ -149,7 +149,7 @@ function install_optional_dependencies() {
     then
       #На домашнем компе клавиатура k290 у которой функциональные клавиши работают только при нажатии вместе с FN.
       #rtl88xxau-aircrack-dkms-git Для wifi модуля
-      sudo -u "$USER" yay -S --needed \
+      sudo -u "$USER" yay -S --needed --noconfirm \
           k290-fnkeyctl \
           rtl88xxau-aircrack-dkms-git
     fi
