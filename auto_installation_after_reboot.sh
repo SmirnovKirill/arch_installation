@@ -101,7 +101,7 @@ log_info "Нажми любую клавишу после того как под
 read -n1 -s
 
 sudo -u "$USER" rm -rf "/home/$USER/arch_installation"
-sudo -u "$USER" git -С "/home/$USER" clone "$REPOSITORY_ROOT_URL/arch_installation.git"
+sudo -u "$USER" git -C "/home/$USER" clone "$REPOSITORY_ROOT_URL/arch_installation.git"
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/obsidian_work.git" "/home/$USER/Obsidian Vault"
 
 log_info "Нажми любую клавишу после того как подключишь vpn"
