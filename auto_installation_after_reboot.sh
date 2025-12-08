@@ -2,9 +2,9 @@
 
 set -euxo pipefail
 
-CURRENT_DIRECTORY="$(dirname "$0")"
-source "$CURRENT_DIRECTORY/variables.sh"
-source "$CURRENT_DIRECTORY/functions.sh"
+ARCH_INSTALLATION_SCRIPT_DIRECTORY="$(cd "$(dirname "$0")" && pwd)"
+source "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/variables.sh"
+source "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/functions.sh"
 
 function enable_services() {
   systemctl enable NetworkManager --now

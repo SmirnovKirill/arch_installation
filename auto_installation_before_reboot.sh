@@ -2,10 +2,10 @@
 
 set -euxo pipefail
 
-CURRENT_DIRECTORY="$(dirname "$0")"
-source "$CURRENT_DIRECTORY/variables.sh"
-source "$CURRENT_DIRECTORY/functions.sh"
-source "$CURRENT_DIRECTORY/config_sync.sh"
+ARCH_INSTALLATION_SCRIPT_DIRECTORY="$(cd "$(dirname "$0")" && pwd)"
+source "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/variables.sh"
+source "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/functions.sh"
+source "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/config_sync.sh"
 
 function install_pacman_dependencies() {
       #--needed для повторных запусков
@@ -214,13 +214,13 @@ sudo -u "$USER" mkdir "/home/$USER/.config/lxpanel/default/panels" -p
 sudo -u "$USER" mkdir "/home/$USER/.config/filezilla" -p
 sudo -u "$USER" mkdir "/home/$USER/.m2" -p
 sudo -u "$USER" mkdir "/home/$USER/Desktop" -p
-cp "$CURRENT_DIRECTORY/configs/anyconnect_hh.xml" "/opt/cisco/secureclient/vpn/profile"
-config_sync "$CURRENT_DIRECTORY"
+cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/anyconnect_hh.xml" "/opt/cisco/secureclient/vpn/profile"
+config_sync "$ARCH_INSTALLATION_SCRIPT_DIRECTORY"
 
-sudo -u "$USER" cp "$CURRENT_DIRECTORY/configs/filezilla/sitemanager.xml" "/home/$USER/.config/filezilla/sitemanager.xml"
+sudo -u "$USER" cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/filezilla/sitemanager.xml" "/home/$USER/.config/filezilla/sitemanager.xml"
 substitute_variables "/home/$USER/.config/filezilla/sitemanager.xml"
 
-cp "$CURRENT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlight.rules"
+cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/rules.d/90-backlight.rules"
 
 udevadm control --reload-rules
 udevadm trigger #код выше чтобы часы распознавались при подключении
