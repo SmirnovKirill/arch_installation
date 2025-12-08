@@ -231,4 +231,5 @@ sed -i 's/Listen \/run\/cups\/cups.sock/#Listen \/run\/cups\/cups.sock/g' /etc/c
 sed -i '/^auth[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a auth       optional     pam_gnome_keyring.so' /etc/pam.d/login
 sed -i '/^session[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a session    optional     pam_gnome_keyring.so auto_start' /etc/pam.d/login
 
-sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/arch_installation.git" "/home/$USER/arch_installation"
+sudo -u "$USER" mkdir -p "/home/$USER/arch_installation"
+sudo -u "$USER" cp -a "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/." "/home/$USER/arch_installation/"
