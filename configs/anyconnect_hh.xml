@@ -5,7 +5,7 @@
     </ClientInitialization>
     <ServerList>
         <HostEntry>
-            <HostName>hh</HostName>
+            <HostName>vpn5.pyn.ru:444/hh</HostName>
             <HostAddress>vpn5.pyn.ru:444/hh</HostAddress>
             <PrimaryProtocol>SSL</PrimaryProtocol>
         </HostEntry>
