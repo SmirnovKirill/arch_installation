@@ -73,6 +73,7 @@ function install_pacman_dependencies() {
         pavucontrol \
         pulseaudio-bluetooth \
         bluez-utils \
+        blueman \
         mattermost-desktop \
         avahi \
         nss-mdns \

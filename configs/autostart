@@ -11,3 +11,4 @@ openambit &
 bluetoothctl power on
 /opt/AmneziaVPN/client/AmneziaVPN.sh &
 /opt/cisco/anyconnect/bin/vpnui &
+blueman-applet &
