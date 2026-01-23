@@ -46,6 +46,21 @@ function configure_dns() {
 dns=systemd-resolved
 rc-manager=auto
 EOF
+
+  nmcli con show --active
+
+  read -r -p "Cisco vpn connection name: " CISCO_VPN_NAME
+  nmcli con mod "$CISCO_VPN_NAME" ipv4.dns-priority 1
+
+  read -r -p "Amnezia vpn connection name: " AMNEZIA_VPN_NAME
+  nmcli con mod "$AMNEZIA_VPN_NAME" ipv4.ignore-auto-dns yes
+  nmcli con mod "$AMNEZIA_VPN_NAME" ipv4.dns "1.1.1.1 8.8.8.8"
+  nmcli con mod "$AMNEZIA_VPN_NAME" ipv4.dns-priority 2
+
+  read -r -p "Wi-Fi connection name: " WIFI_NAME
+  nmcli con mod "$WIFI_NAME" ipv4.ignore-auto-dns yes
+  nmcli con mod "$WIFI_NAME" ipv4.dns "1.1.1.1 8.8.8.8"
+  nmcli con mod "$WIFI_NAME" ipv4.dns-priority 3
 }
 
 function install_hh_test_cert() {
@@ -107,7 +122,7 @@ cp "$ARCH_INSTALL_USB/network/"* "/etc/NetworkManager/system-connections/"
 chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
 nmcli connection reload
 
-configure_dns
+eternal_retry_on_error configure_dns
 
 log_info "Нажми любую клавишу после того как подключишь вайфай"
 read -n1 -s

@@ -34,3 +34,15 @@ function install_yay() {
   sudo -u "$USER" makepkg -si
   cd "/home/$USER"
 }
+
+function eternal_retry_on_error() {
+  while true; do
+    #Через if безопасно даже при set -e
+    if "$@"; then
+      return 0
+    fi
+
+    local rc=$?
+    echo "Прроизошла ошибка, при выполнении $*, код rc=$rc" >&2
+  done
+}
