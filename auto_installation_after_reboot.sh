@@ -38,6 +38,16 @@ function handle_locale_and_time() {
   echo "LANG=en_US.UTF-8" > /etc/locale.conf
 }
 
+function configure_dns() {
+  ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+  tee /etc/NetworkManager/conf.d/10-dns.conf << 'EOF'
+[main]
+dns=systemd-resolved
+rc-manager=auto
+EOF
+}
+
 function install_hh_test_cert() {
   wget https://crt.pyn.ru/hhtestersCA2025.crt -O /tmp/crt.crt
   trust anchor --store /tmp/crt.crt
@@ -96,6 +106,8 @@ hostnamectl set-hostname archlinux #Чтобы anyconnect например не 
 cp "$ARCH_INSTALL_USB/network/"* "/etc/NetworkManager/system-connections/"
 chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
 nmcli connection reload
+
+configure_dns
 
 log_info "Нажми любую клавишу после того как подключишь вайфай"
 read -n1 -s
