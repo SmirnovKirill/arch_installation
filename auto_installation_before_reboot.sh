@@ -65,6 +65,7 @@ function install_pacman_dependencies() {
         openssh \
         transmission-gtk \
         vlc \
+        vlc-plugin-ffmpeg \
         evince \
         maven \
         libreoffice-still \
