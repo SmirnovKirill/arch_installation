@@ -46,3 +46,4 @@ sudo yay -Syu
 sudo pacman -Syu
 ~/.local/bin/hhtilt java -a negotiations -m server -t ts62.pyn.ru -d 4205 -f
 ncdu
+/opt/intellij-idea-ultimate-edition/bin/idea disableNonBundledPlugins nosplash
