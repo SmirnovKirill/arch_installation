@@ -1,0 +1,35 @@
+table inet vpnroute {
+  set corp4   { type ipv4_addr; flags timeout; timeout 1h; }
+  set novpn4  { type ipv4_addr; flags timeout; timeout 1h; }
+  set amnezia4  { type ipv4_addr; flags timeout; timeout 1h; }
+
+  chain output {
+    type filter hook output priority mangle; policy accept;
+
+    # не трогаем loopback и link-local
+    ip daddr 127.0.0.0/8 return
+
+    # Для уже установленных соединений просто используем сохранённый ct mark
+    ct state established,related meta mark set ct mark
+    ct state established,related return
+
+    # Корпоративная зона
+    ip  daddr @corp4  meta mark set 0x1
+    ct mark set meta mark
+    ip  daddr @corp4 return
+
+    # Зона без впн
+    ip  daddr @novpn4 meta mark set 0x2
+    ct mark set meta mark
+    ip  daddr @novpn4 return
+
+    # Амнезия (только адреса из DNS)
+    ip  daddr @amnezia4 meta mark set 0x3
+    ct mark set meta mark
+    ip  daddr @amnezia4 return
+
+    # По умолчанию Амнезия, тут легко менять на 0x2 например
+    meta mark set 0x3
+    ct mark set meta mark
+  }
+}

@@ -17,12 +17,13 @@ function install_pacman_dependencies() {
       #lxqt-notificationd и libnotify для уведомлений на рабочем столе https://wiki.archlinux.org/title/Desktop_notifications
       #imagemagick для скриншотов
       #xarchiver для интеграции с pcmanfm
+      #inetutils всякие ping, traceroute, telnet и тд
+      #bind-tools утилиты типа dig
       #strongswan для l2tp
       #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
       #nss-mdns для печати (с avahi)
       #doncf для того чтобы сразу конфиги workrave прописать
       #libsecret нужен для кейринга
-      #inetutils всякие ping, traceroute, telnet и тд
       #usbutils - для lsusb
       #rsync - для tilt но и вообще полезно
       #ncdu смотреть использование диска
@@ -61,6 +62,12 @@ function install_pacman_dependencies() {
         network-manager-applet \
         networkmanager-openvpn \
         networkmanager-l2tp \
+        inetutils \
+        bind-tools \
+        dnsmasq \
+        nftables \
+        openbsd-netcat \
+        tcpdump \
         strongswan \
         openssh \
         transmission-gtk \
@@ -98,7 +105,6 @@ function install_pacman_dependencies() {
         gvfs-mtp \
         borg \
         firefox \
-        inetutils \
         obsidian \
         noto-fonts-emoji \
         wget \

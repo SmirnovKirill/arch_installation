@@ -13,6 +13,8 @@ function enable_services() {
   systemctl enable docker --now
   systemctl enable cups --now
   systemctl enable vpnagentd.service --now #для cisco anyconnect, написано в AUR что надо так сделать
+  systemctl enable dnsmasq --now
+  systemctl enable nftables --now
 }
 
 function handle_ssh_keys() {
@@ -38,29 +40,32 @@ function handle_locale_and_time() {
   echo "LANG=en_US.UTF-8" > /etc/locale.conf
 }
 
-function configure_dns() {
-  ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+function configure_network() {
+  hostnamectl set-hostname archlinux #Чтобы anyconnect например не скидывал
 
-  tee /etc/NetworkManager/conf.d/10-dns.conf << 'EOF'
-[main]
-dns=systemd-resolved
-rc-manager=auto
-EOF
+  mkdir -p /etc/dnsmasq.d
+  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/dnsmasq-split.conf" /etc/dnsmasq.d/split.conf
 
-  nmcli con show --active
+  mkdir -p /etc/nftables.d
+  echo 'destroy table inet vpnroute' | sudo tee /etc/nftables.d/00-vpnroute-reset.nft
+  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/vpnroute-mark.nft" /etc/nftables.d/10-vpnroute-mark.nft
 
-  read -r -p "Cisco vpn connection name: " CISCO_VPN_NAME
-  nmcli con mod "$CISCO_VPN_NAME" ipv4.dns-priority 1
+  mkdir -p /etc/iproute2
+  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/rt_tables" /etc/iproute2/rt_tables
 
-  read -r -p "Amnezia vpn connection name: " AMNEZIA_VPN_NAME
-  nmcli con mod "$AMNEZIA_VPN_NAME" ipv4.ignore-auto-dns yes
-  nmcli con mod "$AMNEZIA_VPN_NAME" ipv4.dns "1.1.1.1 8.8.8.8"
-  nmcli con mod "$AMNEZIA_VPN_NAME" ipv4.dns-priority 2
+  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/ip_rules.sh" /usr/local/sbin/ip_rules.sh
+  chmod +x /usr/local/sbin/ip_rules.sh
 
-  read -r -p "Wi-Fi connection name: " WIFI_NAME
-  nmcli con mod "$WIFI_NAME" ipv4.ignore-auto-dns yes
-  nmcli con mod "$WIFI_NAME" ipv4.dns "1.1.1.1 8.8.8.8"
-  nmcli con mod "$WIFI_NAME" ipv4.dns-priority 3
+  #todo include в /etc/nftables.conf
+  #todo conf-dir в /etc/dnsmasq.conf
+
+  mkdir -p /etc/NetworkManager/dispatcher.d
+  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/nm-dispatcher-ip-rules.sh" /etc/NetworkManager/dispatcher.d/90-ip-rules
+  chmod +x /etc/NetworkManager/dispatcher.d/90-ip-rules
+
+  systemctl reload dnsmasq
+  systemctl restart nftables
+  systemctl reload NetworkManager
 }
 
 function install_hh_test_cert() {
@@ -116,13 +121,11 @@ cp "$ARCH_INSTALL_USB/amnezia_configs/"* "/tmp/"
 
 handle_locale_and_time
 
-hostnamectl set-hostname archlinux #Чтобы anyconnect например не скидывал
-
 cp "$ARCH_INSTALL_USB/network/"* "/etc/NetworkManager/system-connections/"
 chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
 nmcli connection reload
 
-eternal_retry_on_error configure_dns
+configure_network
 
 log_info "Нажми любую клавишу после того как подключишь вайфай"
 read -n1 -s

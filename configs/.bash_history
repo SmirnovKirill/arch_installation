@@ -39,11 +39,10 @@ ffmpeg -i ~/in.mkv -map 0:v -map 0:a -map 0:s -vcodec copy -acodec aac -b:a 384k
 ffmpeg -i ~/in.mp3 -map 0:a -acodec copy -map_metadata -1 ~/out.mp3
 /opt/AmneziaVPN/client/AmneziaVPN.sh &
 /opt/cisco/anyconnect/bin/vpnui &
-sudo resolvectl status
-sudo systemctl restart systemd-resolved
+sudo systemctl restart dnsmasq
+sudo systemctl restart nftables
 sudo pacman -S archlinux-keyring
 sudo yay -Syu
 sudo pacman -Syu
 ~/.local/bin/hhtilt java -a negotiations -m server -t ts62.pyn.ru -d 4205 -f
-ncdu
 /opt/intellij-idea-ultimate-edition/bin/idea disableNonBundledPlugins nosplash
