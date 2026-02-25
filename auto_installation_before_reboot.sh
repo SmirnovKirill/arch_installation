@@ -142,7 +142,8 @@ function install_aur_dependencies() {
       acpilight \
       amneziavpn-bin \
       cisco-secure-client \
-      downgrade
+      downgrade \
+      intellij-idea-ultimate-edition
 }
 
 function install_optional_dependencies() {

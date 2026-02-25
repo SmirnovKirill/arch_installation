@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Idea
-Exec=/home/$USER/software/idea/bin/idea.sh
+Exec=intellij-idea-ultimate-edition %u
 Type=Application
 Icon=idea
