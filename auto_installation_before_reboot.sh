@@ -22,6 +22,7 @@ function install_pacman_dependencies() {
       #strongswan для l2tp
       #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
       #nss-mdns для печати (с avahi)
+      # uv для версий питона
       #doncf для того чтобы сразу конфиги workrave прописать
       #libsecret нужен для кейринга
       #usbutils - для lsusb
@@ -96,6 +97,7 @@ function install_pacman_dependencies() {
         python-pip \
         python-pipx \
         python-poetry \
+        uv \
         skaffold \
         telegram-desktop \
         dconf \

@@ -73,35 +73,18 @@ function install_hh_test_cert() {
 }
 
 function install_work_related_repos() {
-  sudo -u "$USER" pipx install 'git+ssh://git@forgejo.pyn.ru/hhru/hh-tilt.git@master'
+  sudo -u "$USER" uv python install 3.13
+  sudo -u "$USER" uv python pin 3.13 --global
+  sudo -u "$USER" uv tool install 'git+ssh://git@forgejo.pyn.ru/hhru/hh-tilt.git@master'
   sudo -u "$USER" docker login registry.pyn.ru
 
-  sudo -u "$USER" mkdir -p "/home/$USER/programming/work"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/hh.ru"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/negotiations"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/topic-auto-action"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/politeness"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/resume-views"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/hiring-plan"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/jlogic"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/logic"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/hhapi"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/resume-search"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/search-impl"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/search-api-hh"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/db-scheme"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/dbscripts"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/deploy"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/hr-tamagotchi"
-  sudo -u "$USER" git -C "/home/$USER/programming/work" clone "git@forgejo.pyn.ru:hhru/data-platform"
-
   cd "/home/$USER/programming/work/logic"
-  sudo -u "$USER" poetry install
-  sudo -u "$USER" poetry run pytest
+  sudo -u "$USER" uv run poetry install
+  sudo -u "$USER" uv run poetry run pytest
 
   cd "/home/$USER/programming/work/hhapi"
-  sudo -u "$USER" poetry install
-  sudo -u "$USER" poetry run pytest
+  sudo -u "$USER" uv run poetry install
+  sudo -u "$USER" uv run poetry run pytest
 
   cd "/home/$USER/programming/work/negotiations"
   sudo -u "$USER" mvn clean install -Dmaven.compiler.showDeprecation
