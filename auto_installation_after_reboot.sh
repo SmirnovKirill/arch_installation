@@ -25,10 +25,8 @@ function handle_ssh_keys() {
   sudo -u "$USER" chmod 700 "/home/$USER/.ssh/pkey.hh"
 }
 
-function install_idea() {
-  sudo -u "$USER" cp "$ARCH_INSTALL_USB/software/idea" "/home/$USER/software/" -r
+function install_idea_reset() {
   sudo -u "$USER" cp "$ARCH_INSTALL_USB/software/reset_jb.sh" "/home/$USER/software/"
-  chmod +x "/home/$USER/software/idea/bin/idea.sh"
 }
 
 function handle_locale_and_time() {
@@ -113,17 +111,13 @@ function install_work_related_repos() {
 
 enable_services
 handle_ssh_keys
-install_idea
+install_idea_reset
 
 sudo -u "$USER" cp "$ARCH_INSTALL_USB/maven/settings.xml" "/home/$USER/.m2/settings.xml"
 
 cp "$ARCH_INSTALL_USB/amnezia_configs/"* "/tmp/"
 
 handle_locale_and_time
-
-cp "$ARCH_INSTALL_USB/network/"* "/etc/NetworkManager/system-connections/"
-chmod 0600 /etc/NetworkManager/system-connections/* #иначе они не подхватятся менеджером
-nmcli connection reload
 
 configure_network
 
