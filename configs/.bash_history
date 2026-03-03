@@ -31,3 +31,4 @@ sudo pacman -S archlinux-keyring
 sudo yay -Syu
 sudo pacman -Syu
 /opt/intellij-idea-ultimate-edition/bin/idea disableNonBundledPlugins nosplash
+sudo journalctl -g 'error' -r
