@@ -32,3 +32,4 @@ sudo yay -Syu
 sudo pacman -Syu
 /opt/intellij-idea-ultimate-edition/bin/idea disableNonBundledPlugins nosplash
 sudo journalctl -g 'error' -r
+docker run -it --rm -p 8080:8080 -v "$PWD:/usr/local/structurizr" structurizr/lite
