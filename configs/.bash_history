@@ -32,7 +32,7 @@ sudo yay -Syu
 sudo pacman -Syu
 /opt/intellij-idea-ultimate-edition/bin/idea disableNonBundledPlugins nosplash
 sudo journalctl -g 'error' -r
-sudo journalctl --rotate --vacuum-time=3h
+sudo journalctl --vacuum-time=3h
 sudo journalctl
 docker run -it --rm -p 8080:8080 -v "/home/$USER/struct:/usr/local/structurizr" structurizr/onpremises
 docker run --network="host" --rm -v "$PWD:/workspace" structurizr/cli push -url http://localhost:8080/api -id 1 -key 9a5a1760-0f1d-495b-b36e-7191aadf6bca -secret 2c0ff61f-f02f-4517-8557-f393e7ab0d92 -w /workspace/workspace.dsl
