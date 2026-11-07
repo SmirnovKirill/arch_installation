@@ -32,6 +32,12 @@ function install_idea_reset() {
 function handle_locale_and_time() {
   ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
   timedatectl set-ntp true
+  log_info "Ожидание синхронизации времени (до 120 секунд)"
+  if ! timeout 120 bash -c 'until [[ "$(timedatectl show --property=NTPSynchronized --value)" == yes ]]; do sleep 1; done'; then
+    log_error "Время не синхронизировано. Проверь подключение к интернету и работу NTP."
+    return 1
+  fi
+  hwclock --systohc
   sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
   sed -i 's/#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/g' /etc/locale.gen
   locale-gen
@@ -100,12 +106,12 @@ sudo -u "$USER" cp "$ARCH_INSTALL_USB/maven/settings.xml" "/home/$USER/.m2/setti
 
 cp "$ARCH_INSTALL_USB/amnezia_configs/"* "/tmp/"
 
-handle_locale_and_time
-
 configure_network
 
 log_info "Нажми любую клавишу после того как подключишь вайфай"
 read -n1 -s
+
+handle_locale_and_time
 
 sudo -u "$USER" git -C "/home/$USER/arch_installation" remote set-url origin "$REPOSITORY_ROOT_URL/arch_installation.git"
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/obsidian_work.git" "/home/$USER/Obsidian Vault"
