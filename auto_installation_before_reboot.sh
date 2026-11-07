@@ -28,6 +28,7 @@ function install_pacman_dependencies() {
       #usbutils - для lsusb
       #rsync - для tilt но и вообще полезно
       #ncdu смотреть использование диска
+      #smartmontools для диагностики дисков через SMART
       pacman -S --needed --noconfirm \
         base-devel \
         wpa_supplicant \
@@ -92,6 +93,7 @@ function install_pacman_dependencies() {
         pinta \
         docker \
         kubectl \
+        npm \
         python \
         python-pip \
         python-pipx \
@@ -112,6 +114,7 @@ function install_pacman_dependencies() {
         usbutils \
         rsync \
         ncdu \
+        smartmontools \
         mousepad \
         slock
 }
