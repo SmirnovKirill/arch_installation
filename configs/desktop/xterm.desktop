@@ -2,5 +2,4 @@
 Name=XTerm
 Exec=xterm
 Type=Application
-Encoding=UTF-8
 Icon=xterm-color_48x48

@@ -2,4 +2,4 @@
 Name=Telegram
 Exec=Telegram
 Type=Application
-Icon=telegram
+Icon=org.telegram.desktop

@@ -2,5 +2,4 @@
 Name=Workrave
 Exec=workrave
 Type=Application
-Encoding=UTF-8
 Icon=workrave

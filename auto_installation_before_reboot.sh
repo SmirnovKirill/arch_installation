@@ -18,7 +18,7 @@ function install_pacman_dependencies() {
       #imagemagick для скриншотов
       #xarchiver для интеграции с pcmanfm
       #inetutils всякие ping, traceroute, telnet и тд
-      #bind-tools утилиты типа dig
+      #bind утилиты типа dig
       #strongswan для l2tp
       #pulseaudio-alsa, pulseaudio-bluetooth и bluez-utils для bluetooth гарнитуры
       #nss-mdns для печати (с avahi)
@@ -50,9 +50,8 @@ function install_pacman_dependencies() {
         papirus-icon-theme \
         imagemagick \
         filezilla \
-        jdk11-openjdk \
-        jdk17-openjdk \
         jdk21-openjdk \
+        jdk25-openjdk \
         thunderbird \
         xarchiver \
         zip \
@@ -64,7 +63,7 @@ function install_pacman_dependencies() {
         networkmanager-openvpn \
         networkmanager-l2tp \
         inetutils \
-        bind-tools \
+        bind \
         dnsmasq \
         nftables \
         openbsd-netcat \
@@ -83,7 +82,6 @@ function install_pacman_dependencies() {
         pulseaudio-bluetooth \
         bluez-utils \
         blueman \
-        mattermost-desktop \
         avahi \
         nss-mdns \
         cups \
@@ -91,6 +89,7 @@ function install_pacman_dependencies() {
         simple-scan \
         ffmpeg \
         gthumb \
+        pinta \
         docker \
         kubectl \
         python \
@@ -129,12 +128,9 @@ function add_user_and_groups() {
 function install_aur_dependencies() {
     #--needed для повторных запусков
     #отдельно запускаем потому что из AUR под рутом
-    #jdk20-openj9-bin для билда поиска
     #woeusb-ng загрузочные флешки для винды
     #acpilight для управления яркостью
     sudo -u "$USER" yay -S --needed --noconfirm \
-      pinta \
-      jdk20-openj9-bin \
       woeusb-ng \
       adr-tools \
       postman-bin \
@@ -205,12 +201,12 @@ install_aur_dependencies
 install_optional_dependencies
 install_loader
 
-sudo -u "$USER" git config --global user.email "$GIT_USER_EMAIL_WORK"
+sudo -u "$USER" git config --global user.email "GIT_USER_EMAIL"
 sudo -u "$USER" git config --global user.name "$GIT_USER_NAME"
 
 set_environment_variables
 
-archlinux-java set java-21-openjdk
+archlinux-java set java-25-openjdk
 
 if [[ $MODE == "LAPTOP" ]]; 
 then

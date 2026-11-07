@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Thunderbird
-Exec=/usr/lib/thunderbird/thunderbird %u
+Exec=thunderbird %u
 Type=Application
-Icon=thunderbird
+Icon=org.mozilla.Thunderbird

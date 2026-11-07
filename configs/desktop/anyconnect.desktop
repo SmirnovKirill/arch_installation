@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Anyconnect
-Exec=cisco-secure-client
+Exec=/opt/cisco/secureclient/bin/vpnui
 Type=Application
-Icon=cisco-anyconnect
+Icon=cisco-secure-client

@@ -2,4 +2,4 @@
 Name=Idea
 Exec=intellij-idea-ultimate-edition %u
 Type=Application
-Icon=idea
+Icon=intellij-idea-ultimate-edition

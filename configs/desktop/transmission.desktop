@@ -2,4 +2,4 @@
 Name=Transmission
 Exec=transmission-gtk %U
 Type=Application
-Icon=transmission
+Icon=transmission-gtk
