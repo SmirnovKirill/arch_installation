@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=Idea
-Exec=intellij-idea-ultimate-edition %u
+# Отделяем IDEA от управляющего терминала и группы рабочего стола:
+# интерактивный bash при получении окружения ИИ-агентом может остановить общую группу сигналом SIGTTIN.
+Exec=/usr/bin/setsid -f /usr/bin/intellij-idea-ultimate-edition %u
 Type=Application
 Icon=intellij-idea-ultimate-edition
