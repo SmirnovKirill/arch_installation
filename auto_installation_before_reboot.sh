@@ -235,7 +235,7 @@ cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/90-backlight.rules" "/etc/udev/r
 udevadm control --reload-rules
 udevadm trigger #код выше чтобы часы распознавались при подключении
 
-sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf #чтобы принтер искался
+sed -i 's/hosts: mymachines resolve/hosts: mymachines mdns4_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf #чтобы принтер искался
 sed -i 's/Listen \/run\/cups\/cups.sock/#Listen \/run\/cups\/cups.sock/g' /etc/cups/cupsd.conf #чтобы не было бесконечного ожидания принтера при печати
 
 sed -i '/^auth[[:space:]]\+include[[:space:]]\+system-local-login[[:space:]]*$/a auth       optional     pam_gnome_keyring.so' /etc/pam.d/login
