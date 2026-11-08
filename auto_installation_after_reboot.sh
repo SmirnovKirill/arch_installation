@@ -21,8 +21,6 @@ function handle_ssh_keys() {
   sudo -u "$USER" mkdir "/home/$USER/.ssh" -p
   sudo -u "$USER" cp "$ARCH_INSTALL_USB/ssh/"* "/home/$USER/.ssh/"
   sudo -u "$USER" chmod 700 "/home/$USER/.ssh/id_rsa"
-  sudo -u "$USER" chmod 700 "/home/$USER/.ssh/test-stand-key"
-  sudo -u "$USER" chmod 700 "/home/$USER/.ssh/pkey.hh"
 }
 
 function install_idea_reset() {
@@ -47,55 +45,7 @@ function handle_locale_and_time() {
 function configure_network() {
   hostnamectl set-hostname archlinux #Чтобы anyconnect например не скидывал
 
-  mkdir -p /etc/dnsmasq.d
-  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/dnsmasq-split.conf" /etc/dnsmasq.d/split.conf
-
-  mkdir -p /etc/nftables.d
-  echo 'destroy table inet vpnroute' | sudo tee /etc/nftables.d/00-vpnroute-reset.nft
-  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/vpnroute-mark.nft" /etc/nftables.d/10-vpnroute-mark.nft
-
-  mkdir -p /etc/iproute2
-  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/rt_tables" /etc/iproute2/rt_tables
-
-  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/ip_rules.sh" /usr/local/sbin/ip_rules.sh
-  chmod +x /usr/local/sbin/ip_rules.sh
-
-  #todo include в /etc/nftables.conf
-  #todo conf-dir в /etc/dnsmasq.conf
-
-  mkdir -p /etc/NetworkManager/dispatcher.d
-  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/network/nm-dispatcher-ip-rules.sh" /etc/NetworkManager/dispatcher.d/90-ip-rules
-  chmod +x /etc/NetworkManager/dispatcher.d/90-ip-rules
-
-  systemctl reload dnsmasq
-  systemctl restart nftables
   systemctl reload NetworkManager
-}
-
-function install_hh_test_cert() {
-  wget https://crt.pyn.ru/hhtestersCA2025.crt -O /tmp/crt.crt
-  trust anchor --store /tmp/crt.crt
-  update-ca-trust
-}
-
-function install_work_related_repos() {
-  sudo -u "$USER" uv python install 3.13
-  sudo -u "$USER" uv python pin 3.13 --global
-  sudo -u "$USER" uv tool install 'git+ssh://git@forgejo.pyn.ru/hhru/hh-tilt.git@master'
-  sudo -u "$USER" docker login registry.pyn.ru
-
-  cd "/home/$USER/programming/work/logic"
-  sudo -u "$USER" uv run poetry install
-  sudo -u "$USER" uv run poetry run pytest
-
-  cd "/home/$USER/programming/work/hhapi"
-  sudo -u "$USER" uv run poetry install
-  sudo -u "$USER" uv run poetry run pytest
-
-  cd "/home/$USER/programming/work/negotiations"
-  sudo -u "$USER" mvn clean install -Dmaven.compiler.showDeprecation
-
-  cd "/home/$USER/"
 }
 
 enable_services
@@ -115,9 +65,3 @@ handle_locale_and_time
 
 sudo -u "$USER" git -C "/home/$USER/arch_installation" remote set-url origin "$REPOSITORY_ROOT_URL/arch_installation.git"
 sudo -u "$USER" git clone "$REPOSITORY_ROOT_URL/obsidian_work.git" "/home/$USER/Obsidian Vault"
-
-log_info "Нажми любую клавишу после того как подключишь vpn"
-read -n1 -s
-
-install_hh_test_cert
-install_work_related_repos
