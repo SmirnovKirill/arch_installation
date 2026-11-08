@@ -45,6 +45,13 @@ function handle_locale_and_time() {
 function configure_network() {
   hostnamectl set-hostname archlinux #Чтобы anyconnect например не скидывал
 
+  mkdir -p /etc/NetworkManager/conf.d
+
+  tee /etc/NetworkManager/conf.d/dns-servers.conf >/dev/null <<'EOF'
+[global-dns-domain-*]
+servers=8.8.8.8,8.8.4.4
+EOF
+
   systemctl reload NetworkManager
 }
 
