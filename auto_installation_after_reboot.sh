@@ -52,6 +52,9 @@ function configure_network() {
 servers=8.8.8.8,8.8.4.4
 EOF
 
+  cp "$ARCH_INSTALLATION_SCRIPT_DIRECTORY/configs/nftables.conf" /etc/nftables.conf
+
+  systemctl restart nftables
   systemctl reload NetworkManager
 }
 
